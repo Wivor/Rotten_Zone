@@ -1,18 +1,21 @@
-﻿using System.Collections.Generic;
+﻿using DragonBones;
 using UnityEngine;
 
-[CreateAssetMenu (menuName ="Rat")]
-public class Rat : ScriptableObject
+public class Rat : MonoBehaviour
 {
-    public string unitName;
-    public int healt;
-    public int attack;
-    public int defence;
-    public int speed;
-    public int cost;
+    public ScriptableRat scriptableRat;
+    UnityArmatureComponent armatureComponent;
 
-    public AudioClip attackClip;
-    public AudioClip deathClip;
+    void Start()
+    {
+        UnityFactory.factory.LoadData(scriptableRat.dragonBonesData);
+        armatureComponent = UnityFactory.factory.BuildArmatureComponent("rat_model", "rat_model");
+        Debug.Log(armatureComponent);
+        PlayAnimation();
+    }
 
-    public List<Ability> abilities;
+    public void PlayAnimation()
+    {
+        armatureComponent.animation.Play("animation0");
+    }
 }
