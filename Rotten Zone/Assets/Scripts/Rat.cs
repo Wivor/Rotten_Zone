@@ -9,13 +9,7 @@ public class Rat : MonoBehaviour
     void Start()
     {
         UnityFactory.factory.LoadData(scriptableRat.dragonBonesData);
-        armatureComponent = UnityFactory.factory.BuildArmatureComponent("rat_model", "rat_model");
-        Debug.Log(armatureComponent);
-        PlayAnimation();
-    }
-
-    public void PlayAnimation()
-    {
-        armatureComponent.animation.Play("animation0");
+        armatureComponent = UnityFactory.factory.BuildArmatureComponent("Armature", gameObject: gameObject);
+        armatureComponent.animation.Play("walking");
     }
 }
