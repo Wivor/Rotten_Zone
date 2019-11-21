@@ -167,8 +167,6 @@ namespace DragonBones
             {
                 if (_armatureComponent.armature == null)
                 {
-                    // żeby zawsze wyświetlało informacje o obiekcie
-                    created = true;
                     if (GUILayout.Button("Create"))
                     {
                         created = true;
