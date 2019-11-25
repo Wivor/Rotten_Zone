@@ -14,6 +14,6 @@ public class Rat : MonoBehaviour
         armatureComponent = UnityFactory.factory.BuildArmatureComponent("Armature", gameObject: transform.GetChild(0).gameObject);
         armatureComponent.animation.Play("walking");
 
-        //agent.SetDestination();
+        agent.SetDestination(FindObjectOfType<GameManager>().baseA.transform.position);
     }
 }
