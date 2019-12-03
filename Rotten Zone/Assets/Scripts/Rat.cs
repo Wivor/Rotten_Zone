@@ -4,6 +4,7 @@ using UnityEngine.AI;
 
 public class Rat : MonoBehaviour
 {
+    public Team team;
     public NavMeshAgent agent;
     public ScriptableRat scriptableRat;
     UnityArmatureComponent armatureComponent;
