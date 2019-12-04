@@ -329,7 +329,13 @@ MonoBehaviour:
   z_start: 0
   x_space: 6
   z_space: 6
-  baseObject: {fileID: -927199367670048503, guid: e55e25dd67a89a2488cc1acd70f2e4c5,
+  baseObject: {fileID: -927199367670048503, guid: 5d29e1cc815f63d42b35c622ac5574fd,
+    type: 3}
+  corridorCorner: {fileID: -927199367670048503, guid: e55e25dd67a89a2488cc1acd70f2e4c5,
+    type: 3}
+  corridorStraight: {fileID: -927199367670048503, guid: f7d815fa256713a49aa2a88d30cacdea,
+    type: 3}
+  background: {fileID: -927199367670048503, guid: 5d29e1cc815f63d42b35c622ac5574fd,
     type: 3}
 --- !u!4 &1263920674
 Transform:
