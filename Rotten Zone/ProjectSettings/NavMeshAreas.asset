@@ -120,6 +120,6 @@ NavMeshProjectSettings:
     debug:
       m_Flags: 0
   m_SettingNames:
-  - Lane1
-  - Lane2
-  - Lane3
+  - 0
+  - 1
+  - 2

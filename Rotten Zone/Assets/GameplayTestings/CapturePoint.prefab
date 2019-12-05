@@ -107,4 +107,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   owner: 0
   capturePoints: 50
+  teamAMaterial: {fileID: 2100000, guid: 4c742b1b942642642a64fddb5e3352e0, type: 2}
+  teamBMaterial: {fileID: 2100000, guid: 990c0ac4a505b204faaebfdbb4c76d9b, type: 2}
   captureChange: 0
+  ratsAInRange: []
+  ratsBInRange: []

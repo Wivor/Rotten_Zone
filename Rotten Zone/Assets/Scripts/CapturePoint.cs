@@ -3,23 +3,32 @@ using UnityEngine;
 
 public class CapturePoint : MonoBehaviour
 {
+    public Material teamAMaterial;
+    public Material teamBMaterial;
+
     public Team owner = Team.none;
-    public int capturePoints = 50;
+    public float capturePoints = 50;
 
     public int captureChange;
+    public List<Rat> ratsAInRange = new List<Rat>();
+    public List<Rat> ratsBInRange = new List<Rat>();
 
     void FixedUpdate()
     {
         if (owner == Team.none)
         {
-            capturePoints += captureChange;
-            if(capturePoints == 100)
+            capturePoints += captureChange * Time.deltaTime;
+            if(capturePoints >= 100)
             {
+                capturePoints = 100;
                 owner = Team.A;
+                GetComponent<Renderer>().material = teamAMaterial;
             }
-            if (capturePoints == 0)
+            if (capturePoints <= 0)
             {
+                capturePoints = 0;
                 owner = Team.B;
+                GetComponent<Renderer>().material = teamBMaterial;
             }
         }
     }
@@ -31,10 +40,12 @@ public class CapturePoint : MonoBehaviour
         if (rat.team == Team.A)
         {
             captureChange += rat.scriptableRat.capPoints;
+            ratsAInRange.Add(rat);
         }
         else
         {
             captureChange -= rat.scriptableRat.capPoints;
+            ratsBInRange.Add(rat);
         }
     }
 
@@ -45,10 +56,12 @@ public class CapturePoint : MonoBehaviour
         if (rat.team == Team.A)
         {
             captureChange -= rat.scriptableRat.capPoints;
+            ratsAInRange.Remove(rat);
         }
         else
         {
             captureChange += rat.scriptableRat.capPoints;
+            ratsBInRange.Remove(rat);
         }
     }
 }

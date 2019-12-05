@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: Archer
   m_EditorClassIdentifier: 
   unitName: Archer
-  healt: 50
+  health: 0
   attack: 20
   defence: 1
   range: 10
   speed: 10
+  capPoints: 2
   cost: 75
   attackClip: {fileID: 0}
   deathClip: {fileID: 0}
