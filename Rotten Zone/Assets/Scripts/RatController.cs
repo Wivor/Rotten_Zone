@@ -5,10 +5,11 @@ using UnityEngine.AI;
 public class RatController : MonoBehaviour
 {
     Rat rat;
-    public int stepOnPath = 1;
+    public int stepOnPath;
     public List<Transform> path;
 
-    private Action action;
+    public Action currentAction;
+    
     private Vector3 destination;
 
     public void Initialize(Rat rat)
@@ -21,44 +22,31 @@ public class RatController : MonoBehaviour
             path.Reverse();
         }
 
-        SetDestinationToNextWaypoint();
-        MoveForward();
+        stepOnPath = 1;
+        
+        currentAction = new Move(rat);
     }
+
 
     void Update()
     {
-        if ((rat.agent.remainingDistance < rat.agent.stoppingDistance) && (stepOnPath != path.Count -1))
-        {
-            stepOnPath++;
-            SetDestinationToNextWaypoint();
-        }
+        currentAction.Update();
     }
 
-    private void MoveForward()
+    public void ChangeActionTo(Action action)
     {
-        action = Action.MoveForward;
-        rat.agent.SetDestination(destination);
+        currentAction = action;
     }
 
-    private void SetDestinationToNextWaypoint()
+    public Vector3 GetDestinationOfNextWaypoint()
     {
-        if(path[stepOnPath].GetComponent<Corner>() != null)
+        if (path[stepOnPath].GetComponent<Corner>() != null)
         {
-            destination = path[stepOnPath].GetComponent<Corner>().waypoints[rat.pathPosition].transform.position;
-            
+            return path[stepOnPath].GetComponent<Corner>().waypoints[rat.pathPosition].transform.position;
         }
         else
         {
-            destination = path[stepOnPath].position;
-        }
-        if (action == Action.MoveForward)
-        {
-            MoveForward();
+            return path[stepOnPath].position;
         }
     }
-}
-
-public enum Action
-{
-    MoveForward
 }

@@ -8,6 +8,7 @@ public class Rat : MonoBehaviour
     public NavMeshAgent agent;
     public ScriptableRat scriptableRat;
     public int pathPosition;
+    public Vector3 capturePosition;
 
     UnityArmatureComponent armatureComponent;
     public CapturePoint capturePoint;
@@ -19,6 +20,8 @@ public class Rat : MonoBehaviour
         armatureComponent.animation.Play("walking");
 
         pathPosition = Random.Range(0, 9);
+        Vector3 capturePointSize = FindObjectOfType<CapturePoint>().GetComponent<Renderer>().bounds.size;
+        capturePosition = new Vector3(Random.Range(-capturePointSize.x / 2, capturePointSize.x / 2), 0, Random.Range(-capturePointSize.z / 2, capturePointSize.z / 2));
 
         GetComponent<RatController>().Initialize(this);
     }
