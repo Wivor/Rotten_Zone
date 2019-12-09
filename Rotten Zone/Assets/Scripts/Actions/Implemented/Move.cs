@@ -25,5 +25,7 @@ public class Move : Action
             ratController.stepOnPath++;
             rat.agent.SetDestination(ratController.GetDestinationOfNextWaypoint());
         }
+
+        rat.fieldOfView.Update();
     }
 }

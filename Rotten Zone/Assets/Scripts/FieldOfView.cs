@@ -4,18 +4,29 @@ using UnityEngine;
 
 public class FieldOfView : MonoBehaviour
 {
-    public class ExampleClass : MonoBehaviour
-    {
-        void Update()
-        {
-            RaycastHit[] hits;
-            hits = Physics.RaycastAll(transform.position, transform.forward);
+    private Rat rat;
+    private int radius;
 
-            foreach (RaycastHit hit in hits)
+    public LayerMask layerMask;
+
+    public void Initialize(int radius, Rat rat)
+    {
+        this.radius = radius;
+        this.rat = rat;
+    }
+
+    public void Update()
+    {
+        foreach (Collider hit in Physics.OverlapSphere(transform.position, radius, layerMask))
+        {
+            if (hit.GetComponent<Rat>().team != rat.team)
             {
-                Debug.Log("hit");
+                Debug.DrawLine(transform.position, hit.gameObject.transform.position, Color.red);
             }
-            
+            if (hit.GetComponent<Rat>().team == rat.team)
+            {
+                Debug.DrawLine(transform.position, hit.gameObject.transform.position, Color.green);
+            }
         }
     }
 }

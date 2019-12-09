@@ -18,8 +18,9 @@ MonoBehaviour:
   defence: 5
   range: 1
   speed: 10
-  capPoints: 50
+  capPoints: 5
   cost: 50
+  viewDistance: 10
   attackClip: {fileID: 0}
   deathClip: {fileID: 0}
   dragonBonesData: {fileID: 11400000, guid: 17c195740f5766d4d9468abeee71cd53, type: 2}

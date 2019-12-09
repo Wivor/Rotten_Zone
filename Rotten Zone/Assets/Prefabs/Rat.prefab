@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 1092778577020816966}
   - component: {fileID: 1092778577020816960}
   - component: {fileID: -3514013926295939774}
+  - component: {fileID: 1781723224468537538}
   m_Layer: 0
   m_Name: Rat
   m_TagString: Untagged
@@ -136,6 +137,8 @@ MonoBehaviour:
   agent: {fileID: 1092778577020816960}
   scriptableRat: {fileID: 0}
   pathPosition: 0
+  capturePosition: {x: 0, y: 0, z: 0}
+  fieldOfView: {fileID: 0}
   capturePoint: {fileID: 0}
 --- !u!195 &1092778577020816960
 NavMeshAgent:
@@ -173,3 +176,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stepOnPath: 1
   path: []
+--- !u!114 &1781723224468537538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1092778577020816967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cd7c32d11b58f94d8e5a5aa6077d994, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 8192
