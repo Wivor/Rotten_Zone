@@ -10,11 +10,14 @@ public class Capture : Action
 
     public override void OnStart()
     {
-        rat.agent.SetDestination(rat.capturePosition);
+        rat.agent.SetDestination(rat.capturePoint.transform.position + rat.capturePosition);
     }
 
     public override void Update()
     {
-        throw new System.NotImplementedException();
+        if (rat.capturePoint.owner == rat.team)
+        {
+            ratController.SetActionTo(new Move(rat));
+        }
     }
 }

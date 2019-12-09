@@ -33,7 +33,7 @@ public class RatController : MonoBehaviour
         currentAction.Update();
     }
 
-    public void ChangeActionTo(Action action)
+    public void SetActionTo(Action action)
     {
         currentAction = action;
     }

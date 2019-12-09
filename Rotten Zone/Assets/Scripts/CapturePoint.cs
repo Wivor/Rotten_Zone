@@ -15,8 +15,6 @@ public class CapturePoint : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (owner == Team.none)
-        {
             capturePoints += captureChange * Time.deltaTime;
             if(capturePoints >= 100)
             {
@@ -30,7 +28,6 @@ public class CapturePoint : MonoBehaviour
                 owner = Team.B;
                 GetComponent<Renderer>().material = teamBMaterial;
             }
-        }
     }
 
     void OnTriggerEnter(Collider collider)
