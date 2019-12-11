@@ -4,7 +4,7 @@
 o 
 
 # material
-mtllib e_corridor_point_centrum.mtl
+mtllib corridor_point_centrum.mtl
 usemtl palette
 
 # normals
