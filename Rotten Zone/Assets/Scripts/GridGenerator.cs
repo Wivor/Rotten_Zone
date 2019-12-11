@@ -19,7 +19,9 @@ public class GridGenerator : MonoBehaviour
     public GameObject background;
 
     private GameObject[,] mapProto;
+    private float[,] rotations;
     private Tuple<int, int> lastPoint;
+    private bool[,,] corners;
 
     private static System.Random random;
 
@@ -48,7 +50,17 @@ public class GridGenerator : MonoBehaviour
         {
             for (int j = 0; j < rowLen + 1; j++)
             {
-                Instantiate(mapProto[i,j], new Vector3(x_start + (x_space * i), 1, z_start + (-z_space * j)), Quaternion.identity);
+                GameObject temp = Instantiate(mapProto[i, j]);
+                temp.transform.parent = this.transform;
+                temp.transform.position = new Vector3(x_start + (x_space * i), 0, z_start + (-z_space * j));
+                temp.transform.Rotate(0f, 180f + rotations[i, j], 0f);
+                if (corners[i, j, 0])
+                    FindObjectOfType<GameManager>().pathOne.Add(temp);
+                else if(corners[i,j,1])
+                    FindObjectOfType<GameManager>().pathTwo.Add(temp);
+                else
+                    FindObjectOfType<GameManager>().pathThree.Add(temp);
+
             }
         }
     }
@@ -56,15 +68,20 @@ public class GridGenerator : MonoBehaviour
     private void generateArray()
     {
         mapProto = new GameObject[columnLen, rowLen + 1];
+        corners = new bool[columnLen, rowLen + 1, 3];
+        rotations = new float[columnLen, rowLen + 1];
         for (int i = 0; i < columnLen; i++)
             for (int j = 0; j < rowLen; j++)
+            {
                 mapProto[i, j] = background;
+                rotations[i, j] = 1f;
+            }
         mapProto[columnLen / 2, 0] = baseObject;
         mapProto[columnLen / 2 + 1, 0] = baseObject;
         mapProto[columnLen / 2 + 2, 0] = baseObject;
         mapProto[columnLen / 2 - 1, 0] = baseObject;
         mapProto[columnLen / 2 - 2, 0] = baseObject;
-        //mapProto[columnLen / 2, columnLen] = 7;
+        //mapProto[columnLen / 2, columnLen] = 7; //cap point
 
         lastPoint = Tuple.Create(columnLen / 2 - 2, 0);
         GeneratePoints(1, columnLen - 2, columnLen / 2 - 2, 0, 3, 1);
@@ -95,12 +112,12 @@ public class GridGenerator : MonoBehaviour
             lastCol = random.Next(Math.Max(leftBorder + i * spacePerBase, lastCol + 5), leftBorder + (i + 1) * spacePerBase);
             Tuple<int, int> lastPos = Tuple.Create(row, lastCol);
             points.Push(lastPos);
-            CreatePath(lastPoint, lastPos, bottomBorder, upperBorder);
+            CreatePath(lastPoint, lastPos, bottomBorder, upperBorder, laneID);
             lastPoint = lastPos;
             //CreateCapPoint(random.Next(upperBorder + 1, bottomBorder - 1), lastCol);
 
         }
-        CreatePath(lastPoint, Tuple.Create(columnLen / 2, columnLen - 1), bottomBorder, upperBorder);
+        CreatePath(lastPoint, Tuple.Create(columnLen / 2, columnLen - 1), bottomBorder, upperBorder, laneID);
         while (points.Count > 0)
         {
             Tuple<int, int> temp = points.Pop();
@@ -113,10 +130,10 @@ public class GridGenerator : MonoBehaviour
         /*for (int i = -1; i < 2; i++)
             for (int j = -1; j < 2; j++)
                 mapProto[row + i, col + j] = baseObject;*/
-        mapProto[row, col] = baseObject;
+        mapProto[row, col] = baseObject; //cap 
     }
 
-    private void CreatePath(Tuple<int, int> startPoint, Tuple<int, int> endPoint, int bottomLimit, int upperLimit)
+    private void CreatePath(Tuple<int, int> startPoint, Tuple<int, int> endPoint, int bottomLimit, int upperLimit, int laneID)
     {
         int currentRow = startPoint.Item1;
         int currentCol = startPoint.Item2;
@@ -125,7 +142,7 @@ public class GridGenerator : MonoBehaviour
         while (currentCol < endPoint.Item2)
         {
             int decision = random.Next(1, 100);
-            if (decision < 50)
+            if (decision < 50) //poziomo
             {
                 int distance = Math.Min(random.Next(2, 5), endPoint.Item2 - currentCol); //mniejszy limit górny = więcej zakrętów
                 while (distance > 0)
@@ -134,6 +151,8 @@ public class GridGenerator : MonoBehaviour
                     mapProto[currentRow, currentCol] = corridorStraight;
                     distance--;
                 }
+                //FindObjectOfType<GameManager>().pathOne.Add()
+                corners[currentRow, currentCol, laneID] = true;
                 isMoveVertical = true;
             }
             else if (endPoint.Item2 - currentCol > 2 && isMoveVertical)
@@ -145,11 +164,13 @@ public class GridGenerator : MonoBehaviour
                     {
                         currentRow += Math.Sign(distance);
                         mapProto[currentRow, currentCol] = corridorStraight;
+                        rotations[currentRow, currentCol] = 90f;
                         distance -= Math.Sign(distance);
                     }
                     else break;
                 }
                 isMoveVertical = false;
+                corners[currentRow, currentCol, laneID] = true;
             }
         }
         while (currentRow != endPoint.Item1)// && mapProto[currentRow-Math.Sign(currentRow - endPoint.Item1), currentCol] != 0)//Math.Abs(currentRow - endPoint.Item1) >2)
