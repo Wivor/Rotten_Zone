@@ -26,6 +26,7 @@ public class Move : Action
             rat.agent.SetDestination(ratController.GetDestinationOfNextWaypoint());
         }
 
-        rat.fieldOfView.Update();
+        //Debug.Log(rat.fieldOfView.GetEnemyRatsInRange().Count);
+        //rat.fieldOfView.DrawLinesForRats();
     }
 }

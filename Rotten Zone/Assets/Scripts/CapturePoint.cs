@@ -6,7 +6,7 @@ public class CapturePoint : MonoBehaviour
     public Material teamAMaterial;
     public Material teamBMaterial;
 
-    public Team owner = Team.none;
+    public Team owner;
     public float capturePoints = 50;
 
     public int captureChange;
