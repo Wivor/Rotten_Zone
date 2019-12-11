@@ -4,9 +4,13 @@ using UnityEngine.AI;
 
 public class Rat : MonoBehaviour
 {
+    public Team team;
     public NavMeshAgent agent;
     public ScriptableRat scriptableRat;
+    public int pathPosition;
+
     UnityArmatureComponent armatureComponent;
+    public CapturePoint capturePoint;
 
     void Start()
     {
@@ -14,6 +18,24 @@ public class Rat : MonoBehaviour
         armatureComponent = UnityFactory.factory.BuildArmatureComponent("Armature", gameObject: transform.GetChild(0).gameObject);
         armatureComponent.animation.Play("walking");
 
-        agent.SetDestination(FindObjectOfType<GameManager>().baseA.transform.position);
+        pathPosition = Random.Range(0, 9);
+
+        GetComponent<RatController>().Initialize(this);
+    }
+
+    void OnTriggerEnter(Collider collider)
+    {
+        if (collider.GetComponent<CapturePoint>() != null)
+        {
+            capturePoint = collider.GetComponent<CapturePoint>();
+        }
+    }
+
+    void OnTriggerExit(Collider collider)
+    {
+        if (collider.GetComponent<CapturePoint>() != null)
+        {
+            capturePoint = null;
+        }
     }
 }
