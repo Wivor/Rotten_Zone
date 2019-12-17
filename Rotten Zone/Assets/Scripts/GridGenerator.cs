@@ -55,11 +55,11 @@ public class GridGenerator : MonoBehaviour
                 temp.transform.position = new Vector3(x_start + (x_space * i), 0, z_start + (-z_space * j));
                 temp.transform.Rotate(0f, 180f + rotations[i, j], 0f);
                 if (corners[i, j, 0])
-                    FindObjectOfType<GameManager>().pathOne.Add(temp);
+                    FindObjectOfType<GameManager>().pathOne.Add(temp.transform);
                 else if(corners[i,j,1])
-                    FindObjectOfType<GameManager>().pathTwo.Add(temp);
-                else
-                    FindObjectOfType<GameManager>().pathThree.Add(temp);
+                    FindObjectOfType<GameManager>().pathTwo.Add(temp.transform);
+                else if(corners[i,j,2])
+                    FindObjectOfType<GameManager>().pathThree.Add(temp.transform);
 
             }
         }
@@ -89,7 +89,7 @@ public class GridGenerator : MonoBehaviour
         GeneratePoints(1, columnLen - 3, columnLen / 2 + 1, columnLen / 2 - 1, 1, 2);
         lastPoint = Tuple.Create(columnLen / 2 + 2, 0);
         GeneratePoints(1, columnLen - 2, columnLen, columnLen / 2 + 2, 2, 3);
-        CreateCapPoint(columnLen / 2, columnLen, 0);
+        CreateCapPoint(columnLen / 2, columnLen, 1);
         for (int i = 0; i <= columnLen - 1; i++)
         {
             for (int j = 0; j <= rowLen/2 /*?? <= columnLen*/; j++)
@@ -127,9 +127,12 @@ public class GridGenerator : MonoBehaviour
 
     private void CreateCapPoint(int row, int col, int laneID)
     {
-        /*for (int i = -1; i < 2; i++)
+        for (int i = -1; i < 2; i++)
             for (int j = -1; j < 2; j++)
-                mapProto[row + i, col + j] = baseObject;*/
+            {
+                mapProto[row + i, col + j] = baseObject;
+                corners[row + i, col + j, laneID-1] = false;
+            }
         mapProto[row, col] = baseObject; //cap 
     }
 
@@ -152,7 +155,7 @@ public class GridGenerator : MonoBehaviour
                     distance--;
                 }
                 //FindObjectOfType<GameManager>().pathOne.Add()
-                corners[currentRow, currentCol, laneID] = true;
+                corners[currentRow, currentCol, laneID-1] = true;
                 isMoveVertical = true;
             }
             else if (endPoint.Item2 - currentCol > 2 && isMoveVertical)
@@ -170,7 +173,7 @@ public class GridGenerator : MonoBehaviour
                     else break;
                 }
                 isMoveVertical = false;
-                corners[currentRow, currentCol, laneID] = true;
+                corners[currentRow, currentCol, laneID-1] = true;
             }
         }
         while (currentRow != endPoint.Item1)// && mapProto[currentRow-Math.Sign(currentRow - endPoint.Item1), currentCol] != 0)//Math.Abs(currentRow - endPoint.Item1) >2)
