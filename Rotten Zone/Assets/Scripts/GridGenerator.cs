@@ -13,10 +13,13 @@ public class GridGenerator : MonoBehaviour
     public float z_start = 0;
     public float x_space = 5;
     public float z_space = 5;
-    public GameObject baseObject;
-    public GameObject corridorCorner;
-    public GameObject corridorStraight;
     public GameObject background;
+    public GameObject baseObject;
+    public GameObject capPoint;
+    public GameObject corridorCorner;
+    public GameObject corridorCornerShort;
+    public GameObject corridorStraight;
+    public GameObject transparent;
 
     private GameObject[,] mapProto;
     private float[,] rotations;
@@ -53,7 +56,7 @@ public class GridGenerator : MonoBehaviour
                 GameObject temp = Instantiate(mapProto[i, j]);
                 temp.transform.parent = this.transform;
                 temp.transform.position = new Vector3(x_start + (x_space * i), 0, z_start + (-z_space * j));
-                temp.transform.Rotate(0f, 180f + rotations[i, j], 0f);
+                temp.transform.Rotate(new Vector3(0,90f * rotations[i, j], 0));
                 if (corners[i, j, 0])
                     FindObjectOfType<GameManager>().pathOne.Add(temp.transform);
                 else if(corners[i,j,1])
@@ -74,7 +77,7 @@ public class GridGenerator : MonoBehaviour
             for (int j = 0; j < rowLen; j++)
             {
                 mapProto[i, j] = background;
-                rotations[i, j] = 1f;
+                rotations[i, j] = 0f;
             }
         mapProto[columnLen / 2, 0] = baseObject;
         mapProto[columnLen / 2 + 1, 0] = baseObject;
@@ -95,6 +98,7 @@ public class GridGenerator : MonoBehaviour
             for (int j = 0; j <= rowLen/2 /*?? <= columnLen*/; j++)
             {
                 mapProto[columnLen - i - 1, rowLen - j] = mapProto[i, j];
+                rotations[columnLen - i - 1, rowLen - j] = rotations[i, j] % 2 ==0 ? rotations[i,j] : -rotations[i,j];
             }
         }
     }
@@ -130,35 +134,38 @@ public class GridGenerator : MonoBehaviour
         for (int i = -1; i < 2; i++)
             for (int j = -1; j < 2; j++)
             {
-                mapProto[row + i, col + j] = baseObject;
+                mapProto[row + i, col + j] = transparent;
                 corners[row + i, col + j, laneID-1] = false;
             }
-        mapProto[row, col] = baseObject; //cap 
+        mapProto[row, col] = capPoint; //cap 
     }
 
     private void CreatePath(Tuple<int, int> startPoint, Tuple<int, int> endPoint, int bottomLimit, int upperLimit, int laneID)
     {
         int currentRow = startPoint.Item1;
         int currentCol = startPoint.Item2;
-        bool isMoveVertical = false;
+        //bool isMoveVertical = false;
 
         while (currentCol < endPoint.Item2)
         {
             int decision = random.Next(1, 100);
-            if (decision < 50) //poziomo
+            if (decision < 50)
             {
                 int distance = Math.Min(random.Next(2, 5), endPoint.Item2 - currentCol); //mniejszy limit górny = więcej zakrętów
                 while (distance > 0)
                 {
                     currentCol++;
                     mapProto[currentRow, currentCol] = corridorStraight;
+                    rotations[currentRow, currentCol] = 2;
                     distance--;
                 }
                 //FindObjectOfType<GameManager>().pathOne.Add()
-                corners[currentRow, currentCol, laneID-1] = true;
-                isMoveVertical = true;
+                //if (!isMoveVertical)
+                //{
+                //}
+                //isMoveVertical = true;
             }
-            else if (endPoint.Item2 - currentCol > 2 && isMoveVertical)
+            /*else if (endPoint.Item2 - currentCol > 2 && isMoveVertical)
             {
                 int distance = random.Next(upperLimit - currentRow, bottomLimit - currentRow);
                 while (Math.Abs(distance) > 0)
@@ -166,21 +173,44 @@ public class GridGenerator : MonoBehaviour
                     if (0 < currentRow + (Math.Sign(distance) * 2) && currentRow + (Math.Sign(distance) * 2) < columnLen && mapProto[currentRow + (Math.Sign(distance) * 2), currentCol] == baseObject) //zapobiega łączeniu
                     {
                         currentRow += Math.Sign(distance);
-                        mapProto[currentRow, currentCol] = corridorStraight;
-                        rotations[currentRow, currentCol] = 90f;
+                        mapProto[currentRow, currentCol] = baseObject;//corridorStraight;
+                        rotations[currentRow, currentCol] = 3;
                         distance -= Math.Sign(distance);
                     }
                     else break;
                 }
                 isMoveVertical = false;
                 corners[currentRow, currentCol, laneID-1] = true;
+            }*/
+        }
+        if (Math.Abs(currentRow - endPoint.Item1) >= 2)
+        {
+            if (currentRow - endPoint.Item1 > 0) 
+            {
+                //rotations[currentRow, currentCol] = 2;
+                addRotation(currentRow, currentCol, 2);
+                mapProto[currentRow, currentCol] = corridorCorner;
             }
+            else
+            {
+                addRotation(currentRow, currentCol, 1);
+                mapProto[currentRow, currentCol] = corridorCornerShort;
+            }
+            corners[currentRow, currentCol, laneID - 1] = true;
+            //2*Math.Sign(currentRow - endPoint.Item1);
+            //if (currentRow < endPoint.Item1) { }
         }
         while (currentRow != endPoint.Item1)// && mapProto[currentRow-Math.Sign(currentRow - endPoint.Item1), currentCol] != 0)//Math.Abs(currentRow - endPoint.Item1) >2)
         {
             currentRow += Math.Sign(endPoint.Item1 - currentRow);
+            rotations[currentRow, currentCol] = 3 * Math.Sign(currentRow - endPoint.Item1);
             mapProto[currentRow, currentCol] = corridorStraight;
-
         }
+    }
+
+    private void addRotation(int x, int y, float rot)
+    {
+        rotations[x, y] = rot;
+        rotations[columnLen - x - 1, rowLen - y] = rot - 1;
     }
 }
