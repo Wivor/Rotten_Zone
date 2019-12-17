@@ -135,7 +135,7 @@ public class GridGenerator : MonoBehaviour
             for (int j = -1; j < 2; j++)
             {
                 mapProto[row + i, col + j] = transparent;
-                corners[row + i, col + j, laneID-1] = false;
+                //corners[row + i, col + j, laneID-1] = false;
             }
         mapProto[row, col] = capPoint; //cap 
     }
@@ -144,6 +144,7 @@ public class GridGenerator : MonoBehaviour
     {
         int currentRow = startPoint.Item1;
         int currentCol = startPoint.Item2;
+        corners[currentRow, currentCol, laneID - 1] = true;
         //bool isMoveVertical = false;
 
         while (currentCol < endPoint.Item2)
@@ -187,13 +188,12 @@ public class GridGenerator : MonoBehaviour
         {
             if (currentRow - endPoint.Item1 > 0) 
             {
-                //rotations[currentRow, currentCol] = 2;
-                addRotation(currentRow, currentCol, 2);
+                rotations[currentRow, currentCol] = 2;
                 mapProto[currentRow, currentCol] = corridorCorner;
             }
             else
             {
-                addRotation(currentRow, currentCol, 1);
+                rotations[currentRow, currentCol] = 1;
                 mapProto[currentRow, currentCol] = corridorCornerShort;
             }
             corners[currentRow, currentCol, laneID - 1] = true;
@@ -206,11 +206,7 @@ public class GridGenerator : MonoBehaviour
             rotations[currentRow, currentCol] = 3 * Math.Sign(currentRow - endPoint.Item1);
             mapProto[currentRow, currentCol] = corridorStraight;
         }
+        corners[currentRow, currentCol, laneID - 1] = true;
     }
 
-    private void addRotation(int x, int y, float rot)
-    {
-        rotations[x, y] = rot;
-        rotations[columnLen - x - 1, rowLen - y] = rot - 1;
-    }
 }
