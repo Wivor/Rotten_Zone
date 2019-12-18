@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Footrat
   m_EditorClassIdentifier: 
   unitName: Footrat
-  health: 0
+  health: 100
   attack: 25
   defence: 5
   range: 1
@@ -23,5 +23,5 @@ MonoBehaviour:
   viewDistance: 10
   attackClip: {fileID: 0}
   deathClip: {fileID: 0}
-  dragonBonesData: {fileID: 11400000, guid: 17c195740f5766d4d9468abeee71cd53, type: 2}
+  dragonBonesData: {fileID: 11400000, guid: 7998955ddd884ed478acd6c39837a090, type: 2}
   abilities: []

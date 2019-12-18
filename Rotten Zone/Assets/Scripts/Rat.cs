@@ -20,7 +20,7 @@ public class Rat : MonoBehaviour
         Statistics = new Statistics(scriptableRat);
 
         UnityFactory.factory.LoadData(scriptableRat.dragonBonesData);
-        armatureComponent = UnityFactory.factory.BuildArmatureComponent("Armature", gameObject: transform.GetChild(0).gameObject);
+        armatureComponent = UnityFactory.factory.BuildArmatureComponent("Armature1", gameObject: transform.GetChild(0).gameObject);
         armatureComponent.animation.Play("walking");
 
         pathPosition = Random.Range(0, 9);
