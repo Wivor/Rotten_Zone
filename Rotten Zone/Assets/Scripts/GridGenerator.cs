@@ -25,6 +25,7 @@ public class GridGenerator : MonoBehaviour
     private float[,] rotations;
     private Tuple<int, int> lastPoint;
     private bool[,,] corners;
+    private List<(int, int, int)> cornerSet;
 
     private static System.Random random;
 
@@ -57,13 +58,15 @@ public class GridGenerator : MonoBehaviour
                 temp.transform.parent = this.transform;
                 temp.transform.position = new Vector3(x_start + (x_space * i), 0, z_start + (-z_space * j));
                 temp.transform.Rotate(new Vector3(0,90f * rotations[i, j], 0));
+                var tuple = (i, j, 1);
+                if (cornerSet.Contains(tuple))
+                    Debug.Log("true");
                 if (corners[i, j, 0])
                     FindObjectOfType<GameManager>().pathOne.Add(temp.transform);
                 else if(corners[i,j,1])
                     FindObjectOfType<GameManager>().pathTwo.Add(temp.transform);
                 else if(corners[i,j,2])
                     FindObjectOfType<GameManager>().pathThree.Add(temp.transform);
-
             }
         }
     }
@@ -72,6 +75,7 @@ public class GridGenerator : MonoBehaviour
     {
         mapProto = new GameObject[columnLen, rowLen + 1];
         corners = new bool[columnLen, rowLen + 1, 3];
+        cornerSet = new List<(int,int,int)>();
         rotations = new float[columnLen, rowLen + 1];
         for (int i = 0; i < columnLen; i++)
             for (int j = 0; j < rowLen; j++)
@@ -205,7 +209,8 @@ public class GridGenerator : MonoBehaviour
                 rotations[currentRow, currentCol] = 1;
                 mapProto[currentRow, currentCol] = corridorCornerShort;
             }
-            corners[currentRow, currentCol, laneID - 1] = true;
+            //corners[currentRow, currentCol, laneID - 1] = true;
+            cornerSet.Add((currentRow, currentCol, laneID));
             //2*Math.Sign(currentRow - endPoint.Item1);
             //if (currentRow < endPoint.Item1) { }
         }
