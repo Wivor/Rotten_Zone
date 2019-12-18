@@ -84,6 +84,10 @@ public class GridGenerator : MonoBehaviour
         mapProto[columnLen / 2 + 2, 0] = baseObject;
         mapProto[columnLen / 2 - 1, 0] = baseObject;
         mapProto[columnLen / 2 - 2, 0] = baseObject;
+
+        corners[columnLen / 2 - 2, 0, 0] = true;
+        corners[columnLen / 2, 0, 1] = true;
+        corners[columnLen / 2 + 2, 0, 2] = true;
         //mapProto[columnLen / 2, columnLen] = 7; //cap point
 
         lastPoint = Tuple.Create(columnLen / 2 - 2, 0);
@@ -97,8 +101,13 @@ public class GridGenerator : MonoBehaviour
         {
             for (int j = 0; j <= rowLen/2 /*?? <= columnLen*/; j++)
             {
-                mapProto[columnLen - i - 1, rowLen - j] = mapProto[i, j];
-                rotations[columnLen - i - 1, rowLen - j] = rotations[i, j] % 2 ==0 ? rotations[i,j] : -rotations[i,j];
+                if(mapProto[i, j] == corridorCorner)
+                    mapProto[columnLen - i - 1, rowLen - j] = corridorCornerShort;
+                else if (mapProto[i, j] == corridorCornerShort)
+                    mapProto[columnLen - i - 1, rowLen - j] = corridorCorner;
+                else
+                    mapProto[columnLen - i - 1, rowLen - j] = mapProto[i, j];
+                rotations[columnLen - i - 1, rowLen - j] = /*rotations[i, j] % 2 == 0 ?*/ rotations[i, j];// : -rotations[i,j];
             }
         }
     }
@@ -144,7 +153,7 @@ public class GridGenerator : MonoBehaviour
     {
         int currentRow = startPoint.Item1;
         int currentCol = startPoint.Item2;
-        corners[currentRow, currentCol, laneID - 1] = true;
+        //corners[currentRow, currentCol, laneID - 1] = true;
         //bool isMoveVertical = false;
 
         while (currentCol < endPoint.Item2)
