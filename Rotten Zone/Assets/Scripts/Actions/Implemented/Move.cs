@@ -1,11 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class Move : Action
+﻿public class Move : Action
 {
     public Move(Rat rat) : base(rat)
     {
+        OnStart();
     }
 
     public override void OnStart()
@@ -20,13 +17,21 @@ public class Move : Action
 
     private void ChangeWaypointWhenCloseToCurrent()
     {
+        ChangeWaypoint();
+        SearchForAviableEnemy();
+
+        if (rat.capturePoint != null && (rat.capturePoint.owner != rat.team))
+        {
+            ratController.SetActionTo(new Capture(rat));
+        }
+    }
+
+    private void ChangeWaypoint()
+    {
         if ((rat.agent.remainingDistance < rat.agent.stoppingDistance) && (ratController.stepOnPath != ratController.path.Count - 1))
         {
             ratController.stepOnPath++;
             rat.agent.SetDestination(ratController.GetDestinationOfNextWaypoint());
         }
-
-        //Debug.Log(rat.fieldOfView.GetEnemyRatsInRange().Count);
-        //rat.fieldOfView.DrawLinesForRats();
     }
 }

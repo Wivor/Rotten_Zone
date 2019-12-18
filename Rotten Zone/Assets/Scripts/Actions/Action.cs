@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public abstract class Action
+﻿public abstract class Action
 {
     protected Rat rat;
     protected RatController ratController;
@@ -11,9 +7,22 @@ public abstract class Action
     {
         this.rat = rat;
         ratController = rat.GetComponent<RatController>();
-        OnStart();
     }
 
     public abstract void OnStart();
     public abstract void Update();
+
+    protected void SearchForAviableEnemy()
+    {
+        foreach (Rat enemy in rat.fieldOfView.GetEnemyRatsInRange())
+        {
+            RatController ratControllerOfEnemy = enemy.GetComponent<RatController>();
+
+            if (!ratControllerOfEnemy.IsFighting())
+            {
+                ratController.SetActionTo(new ApproachEnemy(rat, enemy));
+                ratControllerOfEnemy.SetActionTo(new ApproachEnemy(enemy, rat));
+            }
+        }
+    }
 }

@@ -38,6 +38,15 @@ public class RatController : MonoBehaviour
         currentAction = action;
     }
 
+    public bool IsFighting()
+    {
+        if (currentAction is Attack || currentAction is ApproachEnemy)
+        {
+            return true;
+        }
+        return false;
+    }
+
     public Vector3 GetDestinationOfNextWaypoint()
     {
         if (path[stepOnPath].GetComponent<Corner>() != null)

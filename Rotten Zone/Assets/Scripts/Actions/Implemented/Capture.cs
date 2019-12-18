@@ -1,11 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class Capture : Action
+﻿public class Capture : Action
 {
     public Capture(Rat rat) : base(rat)
     {
+        OnStart();
     }
 
     public override void OnStart()
@@ -19,5 +16,7 @@ public class Capture : Action
         {
             ratController.SetActionTo(new Move(rat));
         }
+
+        SearchForAviableEnemy();
     }
 }

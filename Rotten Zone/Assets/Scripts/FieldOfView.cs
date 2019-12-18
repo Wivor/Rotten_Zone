@@ -4,7 +4,9 @@ using System.Linq;
 
 public class FieldOfView : MonoBehaviour
 {
+    [SerializeField]
     private Rat rat;
+    [SerializeField]
     private int radius;
 
     public LayerMask layerMask;
@@ -33,10 +35,18 @@ public class FieldOfView : MonoBehaviour
             {
                 Debug.DrawLine(transform.position, hit.gameObject.transform.position, Color.red);
             }
-            if (hit.GetComponent<Rat>().team == rat.team)
+            else if (hit.GetComponent<Rat>().team == rat.team)
             {
                 Debug.DrawLine(transform.position, hit.gameObject.transform.position, Color.green);
             }
+        }
+    }
+
+    public void DrawLinesForEverything()
+    {
+        foreach (Collider hit in Physics.OverlapSphere(transform.position, radius, layerMask))
+        {
+            Debug.DrawLine(transform.position, hit.gameObject.transform.position);
         }
     }
 }

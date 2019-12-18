@@ -10,12 +10,15 @@ public class Rat : MonoBehaviour
     public int pathPosition;
     public Vector3 capturePosition;
     public FieldOfView fieldOfView;
+    public CapturePoint capturePoint;
 
     UnityArmatureComponent armatureComponent;
-    public CapturePoint capturePoint;
+    Statistics Statistics;
 
     void Start()
     {
+        Statistics = new Statistics(scriptableRat);
+
         UnityFactory.factory.LoadData(scriptableRat.dragonBonesData);
         armatureComponent = UnityFactory.factory.BuildArmatureComponent("Armature", gameObject: transform.GetChild(0).gameObject);
         armatureComponent.animation.Play("walking");
@@ -30,17 +33,32 @@ public class Rat : MonoBehaviour
         GetComponent<RatController>().Initialize(this);
     }
 
+    public void DealDamage(int dmg)
+    {
+        Statistics.health -= dmg;
+        if (Statistics.health <= 0)
+        {
+            if (capturePoint != null)
+            {
+                capturePoint.RemoveRatFromList(this);
+            }
+            Destroy(gameObject);
+        }
+    }
+
     void OnTriggerEnter(Collider collider)
     {
         if (collider.GetComponent<CapturePoint>() != null)
         {
             capturePoint = collider.GetComponent<CapturePoint>();
-            GetComponent<RatController>().SetActionTo(new Capture(this));
         }
     }
 
     void OnTriggerExit(Collider collider)
     {
-
+        if (collider.GetComponent<CapturePoint>() != null)
+        {
+            capturePoint = null;
+        }
     }
 }

@@ -34,22 +34,18 @@ public class CapturePoint : MonoBehaviour
     {
         Rat rat = collider.gameObject.GetComponent<Rat>();
 
-        if (rat.team == Team.A)
-        {
-            captureChange += rat.scriptableRat.capPoints;
-            ratsAInRange.Add(rat);
-        }
-        else
-        {
-            captureChange -= rat.scriptableRat.capPoints;
-            ratsBInRange.Add(rat);
-        }
+        AddRatToList(rat);
     }
 
     void OnTriggerExit(Collider collider)
     {
         Rat rat = collider.gameObject.GetComponent<Rat>();
 
+        RemoveRatFromList(rat);
+    }
+
+    public void RemoveRatFromList(Rat rat)
+    {
         if (rat.team == Team.A)
         {
             captureChange -= rat.scriptableRat.capPoints;
@@ -59,6 +55,20 @@ public class CapturePoint : MonoBehaviour
         {
             captureChange += rat.scriptableRat.capPoints;
             ratsBInRange.Remove(rat);
+        }
+    }
+
+    public void AddRatToList(Rat rat)
+    {
+        if (rat.team == Team.A)
+        {
+            captureChange += rat.scriptableRat.capPoints;
+            ratsAInRange.Add(rat);
+        }
+        else
+        {
+            captureChange -= rat.scriptableRat.capPoints;
+            ratsBInRange.Add(rat);
         }
     }
 }
