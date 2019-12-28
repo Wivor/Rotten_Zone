@@ -331,7 +331,7 @@ MonoBehaviour:
   z_space: 6.4
   background: {fileID: 5750373648684388991, guid: f663d33edfc832746938a35875bf509a,
     type: 3}
-  baseObject: {fileID: 342825710849243841, guid: f49c677b81eaa35479a33f4259783fe3,
+  baseObject: {fileID: -927199367670048503, guid: 188ea1abd8048ad4eb676f5c12d266e3,
     type: 3}
   capPoint: {fileID: -927199367670048503, guid: 26a17164eda604549a11e38a0f8ddd25,
     type: 3}
