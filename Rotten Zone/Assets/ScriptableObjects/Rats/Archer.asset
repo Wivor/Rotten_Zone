@@ -13,13 +13,15 @@ MonoBehaviour:
   m_Name: Archer
   m_EditorClassIdentifier: 
   unitName: Archer
-  health: 0
+  ranged: 1
+  health: 100
   attack: 20
   defence: 1
-  range: 10
   speed: 10
   capPoints: 2
   cost: 75
+  range: 10
+  viewDistance: 10
   attackClip: {fileID: 0}
   deathClip: {fileID: 0}
   dragonBonesData: {fileID: 11400000, guid: 17c195740f5766d4d9468abeee71cd53, type: 2}

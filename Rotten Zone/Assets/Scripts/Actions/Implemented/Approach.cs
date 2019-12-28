@@ -1,8 +1,8 @@
-﻿public class ApproachEnemy : Action
+﻿public class Approach : Action
 {
     Rat enemy;
 
-    public ApproachEnemy(Rat rat, Rat enemy) : base(rat)
+    public Approach(Rat rat, Rat enemy) : base(rat)
     {
         this.enemy = enemy;
         OnStart();

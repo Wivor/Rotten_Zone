@@ -11,7 +11,7 @@ public class FieldOfView : MonoBehaviour
 
     public LayerMask layerMask;
 
-    public List<Rat> enemyRats = new List<Rat>();
+   // public List<Rat> enemyRats = new List<Rat>();
 
     public void Initialize(int radius, Rat rat)
     {

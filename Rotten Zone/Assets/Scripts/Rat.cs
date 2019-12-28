@@ -13,7 +13,7 @@ public class Rat : MonoBehaviour
     public CapturePoint capturePoint;
 
     UnityArmatureComponent armatureComponent;
-    Statistics Statistics;
+    public Statistics Statistics;
 
     void Start()
     {
@@ -44,6 +44,11 @@ public class Rat : MonoBehaviour
             }
             Destroy(gameObject);
         }
+    }
+
+    public bool IsRanged()
+    {
+        return scriptableRat.ranged;
     }
 
     void OnTriggerEnter(Collider collider)

@@ -40,7 +40,7 @@ public class RatController : MonoBehaviour
 
     public bool IsFighting()
     {
-        if (currentAction is Attack || currentAction is ApproachEnemy)
+        if (currentAction is Attack || currentAction is ApproachMeele)
         {
             return true;
         }
