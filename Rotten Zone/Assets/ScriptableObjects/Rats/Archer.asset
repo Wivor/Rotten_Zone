@@ -17,7 +17,7 @@ MonoBehaviour:
   health: 100
   attack: 20
   defence: 1
-  speed: 10
+  speed: 4
   capPoints: 2
   cost: 75
   range: 10

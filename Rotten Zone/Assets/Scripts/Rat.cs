@@ -30,6 +30,7 @@ public class Rat : MonoBehaviour
         fieldOfView = GetComponent<FieldOfView>();
         fieldOfView.Initialize(scriptableRat.viewDistance, this);
 
+        agent.speed = Statistics.speed;
         GetComponent<RatController>().Initialize(this);
     }
 

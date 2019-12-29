@@ -13,13 +13,14 @@ MonoBehaviour:
   m_Name: Footrat
   m_EditorClassIdentifier: 
   unitName: Footrat
+  ranged: 0
   health: 100
   attack: 25
   defence: 5
-  range: 1
-  speed: 10
+  speed: 4
   capPoints: 5
   cost: 50
+  range: 1
   viewDistance: 10
   attackClip: {fileID: 0}
   deathClip: {fileID: 0}
