@@ -16,6 +16,7 @@ MonoBehaviour:
   ranged: 1
   health: 100
   attack: 20
+  attackSpeed: 2
   defence: 1
   speed: 4
   capPoints: 2
