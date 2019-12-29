@@ -6,7 +6,7 @@ public class CapturePoint : MonoBehaviour
     public Material teamAMaterial;
     public Material teamBMaterial;
 
-    public Team owner = Team.none;
+    public Team owner;
     public float capturePoints = 50;
 
     public int captureChange;
@@ -15,8 +15,6 @@ public class CapturePoint : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (owner == Team.none)
-        {
             capturePoints += captureChange * Time.deltaTime;
             if(capturePoints >= 100)
             {
@@ -30,29 +28,24 @@ public class CapturePoint : MonoBehaviour
                 owner = Team.B;
                 GetComponent<Renderer>().material = teamBMaterial;
             }
-        }
     }
 
     void OnTriggerEnter(Collider collider)
     {
         Rat rat = collider.gameObject.GetComponent<Rat>();
 
-        if (rat.team == Team.A)
-        {
-            captureChange += rat.scriptableRat.capPoints;
-            ratsAInRange.Add(rat);
-        }
-        else
-        {
-            captureChange -= rat.scriptableRat.capPoints;
-            ratsBInRange.Add(rat);
-        }
+        AddRatToList(rat);
     }
 
     void OnTriggerExit(Collider collider)
     {
         Rat rat = collider.gameObject.GetComponent<Rat>();
 
+        RemoveRatFromList(rat);
+    }
+
+    public void RemoveRatFromList(Rat rat)
+    {
         if (rat.team == Team.A)
         {
             captureChange -= rat.scriptableRat.capPoints;
@@ -62,6 +55,20 @@ public class CapturePoint : MonoBehaviour
         {
             captureChange += rat.scriptableRat.capPoints;
             ratsBInRange.Remove(rat);
+        }
+    }
+
+    public void AddRatToList(Rat rat)
+    {
+        if (rat.team == Team.A)
+        {
+            captureChange += rat.scriptableRat.capPoints;
+            ratsAInRange.Add(rat);
+        }
+        else
+        {
+            captureChange -= rat.scriptableRat.capPoints;
+            ratsBInRange.Add(rat);
         }
     }
 }

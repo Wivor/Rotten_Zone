@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1092778576338093214}
   - component: {fileID: 1092778576338093215}
   - component: {fileID: 3798123304266074990}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Armature
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,7 +98,8 @@ GameObject:
   - component: {fileID: 1092778577020816966}
   - component: {fileID: 1092778577020816960}
   - component: {fileID: -3514013926295939774}
-  m_Layer: 0
+  - component: {fileID: 1781723224468537538}
+  m_Layer: 13
   m_Name: Rat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,7 +114,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1092778577020816967}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 27.7, y: 0, z: -0.52048075}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1092778576338093212}
@@ -136,6 +137,8 @@ MonoBehaviour:
   agent: {fileID: 1092778577020816960}
   scriptableRat: {fileID: 0}
   pathPosition: 0
+  capturePosition: {x: 0, y: 0, z: 0}
+  fieldOfView: {fileID: 0}
   capturePoint: {fileID: 0}
 --- !u!195 &1092778577020816960
 NavMeshAgent:
@@ -145,13 +148,13 @@ NavMeshAgent:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1092778577020816967}
   m_Enabled: 1
-  m_AgentTypeID: 0
+  m_AgentTypeID: -1372625422
   m_Radius: 0.5
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 3
+  m_StoppingDistance: 1
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -171,4 +174,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bb0b5a00749b2848b4b6d235293e0f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stepOnPath: 1
   path: []
+--- !u!114 &1781723224468537538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1092778577020816967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cd7c32d11b58f94d8e5a5aa6077d994, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 8192
+  enemyRats: []
