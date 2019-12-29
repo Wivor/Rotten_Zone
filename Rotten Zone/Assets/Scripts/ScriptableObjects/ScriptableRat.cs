@@ -9,6 +9,7 @@ public class ScriptableRat : ScriptableObject
     public bool ranged;
     public int health;
     public int attack;
+    public int attackSpeed;
     public int defence;
     public int speed;
     public int capPoints;

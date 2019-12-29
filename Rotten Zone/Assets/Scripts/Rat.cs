@@ -13,6 +13,8 @@ public class Rat : MonoBehaviour
     public CapturePoint capturePoint;
 
     UnityArmatureComponent armatureComponent;
+
+    [SerializeField]
     public Statistics Statistics;
 
     void Start()

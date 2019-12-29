@@ -1,17 +1,23 @@
-﻿public class Statistics
+﻿using UnityEngine;
+using System;
+
+[Serializable]
+public class Statistics
 {
     public int health;
     public int attack;
+    public int attackSpeed;
     public int defence;
     public int range;
     public int speed;
     public int capPoints;
     public int cost;
-
+    
     public Statistics(ScriptableRat scriptableRat)
     {
         health = scriptableRat.health;
         attack = scriptableRat.attack;
+        attackSpeed = scriptableRat.attackSpeed;
         defence = scriptableRat.defence;
         range = scriptableRat.range;
         speed = scriptableRat.speed;

@@ -3,6 +3,7 @@
 public class Shoot : Action
 {
     Rat enemy;
+    Timer timer;
 
     public Shoot(Rat rat, Rat enemy) : base(rat)
     {
@@ -13,6 +14,7 @@ public class Shoot : Action
     public override void OnStart()
     {
         rat.agent.destination = rat.transform.position;
+        timer = new Timer(Time.deltaTime, rat.Statistics.attackSpeed, Action);
     }
 
     public override void Update()
@@ -27,7 +29,12 @@ public class Shoot : Action
         }
         else
         {
-            enemy.DealDamage(rat.scriptableRat.attack + (int)Random.Range(rat.scriptableRat.attack * 0.1f, rat.scriptableRat.attack * 0.1f));
+            timer.Update();
         }
+    }
+
+    private void Action()
+    {
+        enemy.DealDamage(rat.Statistics.attack + (int)Random.Range(-rat.Statistics.attack * 0.2f, rat.Statistics.attack * 0.2f));
     }
 }
