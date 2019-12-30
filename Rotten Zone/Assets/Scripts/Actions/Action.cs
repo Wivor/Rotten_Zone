@@ -13,6 +13,7 @@ public abstract class Action
     }
 
     public abstract void OnStart();
+    public abstract void OnEnd();
     public abstract void Update();
 
     protected void SearchForAviableEnemy()

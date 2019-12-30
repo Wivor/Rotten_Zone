@@ -11,6 +11,11 @@ public class Shoot : Action
         OnStart();
     }
 
+    public override void OnEnd()
+    {
+        
+    }
+
     public override void OnStart()
     {
         rat.agent.destination = rat.transform.position;

@@ -64,9 +64,5 @@ public class Rat : MonoBehaviour
 
     void OnTriggerExit(Collider collider)
     {
-        if (collider.GetComponent<CapturePoint>() != null)
-        {
-            capturePoint = null;
-        }
     }
 }

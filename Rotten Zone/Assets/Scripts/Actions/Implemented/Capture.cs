@@ -5,6 +5,11 @@
         OnStart();
     }
 
+    public override void OnEnd()
+    {
+        
+    }
+
     public override void OnStart()
     {
         rat.agent.SetDestination(rat.capturePoint.transform.position + rat.capturePosition);
