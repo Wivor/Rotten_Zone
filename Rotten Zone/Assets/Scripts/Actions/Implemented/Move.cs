@@ -13,20 +13,19 @@
     public override void Update()
     {
         ChangeWaypointWhenCloseToCurrent();
+        SearchForAviableEnemy();
+        CheckForCapturePoint();
     }
 
-    private void ChangeWaypointWhenCloseToCurrent()
+    private void CheckForCapturePoint()
     {
-        ChangeWaypoint();
-        SearchForAviableEnemy();
-
         if (rat.capturePoint != null && (rat.capturePoint.owner != rat.team))
         {
             ratController.SetActionTo(new Capture(rat));
         }
     }
 
-    private void ChangeWaypoint()
+    private void ChangeWaypointWhenCloseToCurrent()
     {
         if ((rat.agent.remainingDistance < rat.agent.stoppingDistance) && (ratController.stepOnPath != ratController.path.Count - 1))
         {
