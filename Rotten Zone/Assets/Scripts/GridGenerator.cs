@@ -94,6 +94,13 @@ public class GridGenerator : MonoBehaviour
                 temp.transform.parent = this.transform;
                 temp.transform.position = new Vector3(x_start + (x_space * element.Item1), 0, z_start + (-z_space * element.Item2));
                 temp.transform.Rotate(new Vector3(0, 90f * rotations[element.Item1, element.Item2], 0));
+                if (mapProto[element.Item1, element.Item2] == capPoint)
+                {
+                    BoxCollider col = temp.AddComponent<BoxCollider>();
+                    col.center = new Vector3(0, 1.2f, 0);
+                    col.size = new Vector3(3 * x_space, 3, 3 * z_space);
+                    Component cap = temp.AddComponent<CapturePoint>();
+                }
                 if (ind==0)
                     FindObjectOfType<GameManager>().pathOne.Add(temp.transform);
                 else if (ind==1)

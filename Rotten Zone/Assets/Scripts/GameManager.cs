@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
     public Base baseA;
     public Base baseB;
 
+    public bool isPaused = false;
+
     public int playerAScore = 100;
     public int playerBScore = 100;
 
@@ -51,6 +53,12 @@ public class GameManager : MonoBehaviour
         timer.Enabled = true;
     }
 
+    public void TogglePause()
+    {
+        timer.Enabled = !timer.Enabled;
+        isPaused = !isPaused;
+    }
+
     private void UpdatePoints(object source, System.Timers.ElapsedEventArgs e)
     {
         playerAScore += 30;
@@ -66,4 +74,10 @@ public class GameManager : MonoBehaviour
         Debug.Log(playerAScore);
         Debug.Log(playerBScore);
     }
+
+    void OnApplicationQuit()
+    {
+        timer.Stop();
+    }
+
 }
