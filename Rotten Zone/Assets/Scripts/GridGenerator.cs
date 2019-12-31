@@ -99,7 +99,8 @@ public class GridGenerator : MonoBehaviour
                     BoxCollider col = temp.AddComponent<BoxCollider>();
                     col.center = new Vector3(0, 1.2f, 0);
                     col.size = new Vector3(3 * x_space, 3, 3 * z_space);
-                    Component cap = temp.AddComponent<CapturePoint>();
+                    temp.AddComponent<CapturePoint>().distanceModifier = (float)Math.Round(2.0f * (float)((Math.Sqrt(Math.Pow(0 - columnLen / 2, 2) + Math.Pow(0 - columnLen, 2)) - Math.Sqrt(Math.Pow(element.Item1 - columnLen / 2, 2) + Math.Pow(element.Item2 - columnLen, 2)))/ Math.Sqrt(Math.Pow(0 - columnLen / 2, 2) + Math.Pow(0 - columnLen, 2))) + 0.1f * (ind+3) ,2);//((Math.Pow(0 - columnLen / 2, 2) + Math.Pow(0 - columnLen, 2) - Math.Pow(element.Item1 - columnLen / 2, 2) + Math.Pow(element.Item2 - columnLen, 2)))));
+
                 }
                 if (ind==0)
                     FindObjectOfType<GameManager>().pathOne.Add(temp.transform);

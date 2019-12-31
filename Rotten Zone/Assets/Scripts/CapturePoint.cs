@@ -8,7 +8,7 @@ public class CapturePoint : MonoBehaviour
 
     public Team owner;
     public float capturePoints = 50;
-    public float distanceModifier = 1.0f;
+    public float distanceModifier = 2.0f;
 
     public int income = 50;
     public int captureChange;
