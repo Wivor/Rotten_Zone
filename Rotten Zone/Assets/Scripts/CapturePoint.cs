@@ -9,6 +9,7 @@ public class CapturePoint : MonoBehaviour
     public Team owner;
     public float capturePoints = 50;
 
+    public int income = 50;
     public int captureChange;
     public List<Rat> ratsAInRange = new List<Rat>();
     public List<Rat> ratsBInRange = new List<Rat>();
@@ -20,12 +21,18 @@ public class CapturePoint : MonoBehaviour
             {
                 capturePoints = 100;
                 owner = Team.A;
+                FindObjectOfType<GameManager>().teamAPoints.Add(this);
+                if (FindObjectOfType<GameManager>().teamBPoints.Contains(this))
+                    FindObjectOfType<GameManager>().teamBPoints.Remove(this);
                 GetComponent<Renderer>().material = teamAMaterial;
             }
             if (capturePoints <= 0)
             {
                 capturePoints = 0;
                 owner = Team.B;
+                FindObjectOfType<GameManager>().teamBPoints.Add(this);
+                    if (FindObjectOfType<GameManager>().teamAPoints.Contains(this))
+                    FindObjectOfType<GameManager>().teamAPoints.Remove(this);
                 GetComponent<Renderer>().material = teamBMaterial;
             }
     }
