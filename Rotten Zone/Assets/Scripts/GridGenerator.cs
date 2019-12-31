@@ -30,6 +30,7 @@ public class GridGenerator : MonoBehaviour
     private List<(int, int)> cornerSet2;
     private List<(int, int)> cornerSet3;
     private Dictionary<int, List<(int,int)>> cornersDictionary;
+    private Dictionary<(int, int), int> laneDictionary;
 
     private static System.Random random;
 
@@ -55,6 +56,7 @@ public class GridGenerator : MonoBehaviour
     private void generateFromArray()
     {
         int ind = 0;
+        int defaultLayer;
         foreach (KeyValuePair<int, List<(int,int)>> list in cornersDictionary)
         {
             var temp = Enumerable.Reverse(list.Value);
@@ -75,15 +77,7 @@ public class GridGenerator : MonoBehaviour
                 temp.transform.parent = this.transform;
                 temp.transform.position = new Vector3(x_start + (x_space * i), 0, z_start + (-z_space * j));
                 temp.transform.Rotate(new Vector3(0,90f * rotations[i, j], 0));
-                /*var tuple = (i, j);
-                if (cornersDictionary)
-                    Debug.Log("true");
-                if (corners[i, j, 0])
-                    FindObjectOfType<GameManager>().pathOne.Add(temp.transform);
-                else if(corners[i,j,1])
-                    FindObjectOfType<GameManager>().pathTwo.Add(temp.transform);
-                else if(corners[i,j,2])
-                    FindObjectOfType<GameManager>().pathThree.Add(temp.transform);*/
+                temp.layer = laneDictionary.TryGetValue((i,j), out defaultLayer) ? laneDictionary[(i, j)] : defaultLayer;
             }
         }
         foreach (KeyValuePair<int, List<(int, int)>> list in cornersDictionary)
@@ -94,6 +88,7 @@ public class GridGenerator : MonoBehaviour
                 temp.transform.parent = this.transform;
                 temp.transform.position = new Vector3(x_start + (x_space * element.Item1), 0, z_start + (-z_space * element.Item2));
                 temp.transform.Rotate(new Vector3(0, 90f * rotations[element.Item1, element.Item2], 0));
+                temp.layer = laneDictionary.TryGetValue((element.Item1, element.Item2), out defaultLayer) ? laneDictionary[(element.Item1, element.Item2)] : defaultLayer;
                 if (mapProto[element.Item1, element.Item2] == capPoint)
                 {
                     BoxCollider col = temp.AddComponent<BoxCollider>();
@@ -120,6 +115,7 @@ public class GridGenerator : MonoBehaviour
         cornerSet1 = new List<(int,int)>();
         cornerSet2 = new List<(int,int)>();
         cornerSet3 = new List<(int,int)>();
+        laneDictionary = new Dictionary<(int, int), int>();
         cornersDictionary = new Dictionary<int, System.Collections.Generic.List<(int,int)>>();
         cornersDictionary[1] = cornerSet1;
         cornersDictionary[2] = cornerSet2;
@@ -153,7 +149,7 @@ public class GridGenerator : MonoBehaviour
         GeneratePoints(1, columnLen - 3, columnLen / 2 + 1, columnLen / 2 - 1, 1, 2);
         lastPoint = Tuple.Create(columnLen / 2 + 2, 0);
         GeneratePoints(1, columnLen - 2, columnLen, columnLen / 2 + 2, 2, 3);
-        CreateCapPoint(columnLen / 2, columnLen, 1);
+        CreateCapPoint(columnLen / 2, columnLen, 12);
         for (int i = 0; i <= columnLen - 1; i++)
         {
             for (int j = 0; j <= rowLen/2 /*?? <= columnLen*/; j++)
@@ -208,6 +204,8 @@ public class GridGenerator : MonoBehaviour
                 //corners[row + i, col + j, laneID-1] = false;
             }
         mapProto[row, col] = capPoint; //cap 
+        laneDictionary[(row, col)] = 12;
+        laneDictionary[(columnLen - 1 - row, rowLen - col)] = 12;
         rotations[row, col] = -1;
     }
 
@@ -229,6 +227,8 @@ public class GridGenerator : MonoBehaviour
                     currentCol++;
                     mapProto[currentRow, currentCol] = corridorStraight;
                     rotations[currentRow, currentCol] = 2;
+                    laneDictionary[(currentRow, currentCol)] = laneID + 8;
+                    laneDictionary[(columnLen - 1 - currentRow, rowLen - currentCol)] = laneID + 8;
                     distance--;
                 }
                 //FindObjectOfType<GameManager>().pathOne.Add()
@@ -261,11 +261,15 @@ public class GridGenerator : MonoBehaviour
             {
                 rotations[currentRow, currentCol] = 2;
                 mapProto[currentRow, currentCol] = corridorCorner;
+                laneDictionary[(currentRow, currentCol)] = laneID + 8;
+                laneDictionary[(columnLen - 1 - currentRow, rowLen - currentCol)] = laneID + 8;
             }
             else
             {
                 rotations[currentRow, currentCol] = 1;
                 mapProto[currentRow, currentCol] = corridorCornerShort;
+                laneDictionary[(currentRow, currentCol)] = laneID + 8;
+                laneDictionary[(columnLen - 1 - currentRow, rowLen - currentCol)] = laneID + 8;
             }
             //corners[currentRow, currentCol, laneID - 1] = true;
             cornersDictionary[laneID].Add((currentRow, currentCol));
@@ -277,6 +281,8 @@ public class GridGenerator : MonoBehaviour
             currentRow += Math.Sign(endPoint.Item1 - currentRow);
             rotations[currentRow, currentCol] = 3 * Math.Sign(currentRow - endPoint.Item1);
             mapProto[currentRow, currentCol] = corridorStraight;
+            laneDictionary[(currentRow, currentCol)] = laneID + 8;
+            laneDictionary[(columnLen - currentRow - 1, rowLen - currentCol)] = laneID + 8;
         }
         if(currentRow == columnLen / 2 && currentCol == columnLen - 1)
             cornersDictionary[laneID].Add((currentRow, currentCol + 1));
