@@ -77,7 +77,13 @@ public class GridGenerator : MonoBehaviour
                 temp.transform.parent = this.transform;
                 temp.transform.position = new Vector3(x_start + (x_space * i), 0, z_start + (-z_space * j));
                 temp.transform.Rotate(new Vector3(0,90f * rotations[i, j], 0));
-                temp.layer = laneDictionary.TryGetValue((i,j), out defaultLayer) ? laneDictionary[(i, j)] : defaultLayer;
+                if (laneDictionary.TryGetValue((i, j), out defaultLayer))
+                {
+                    temp.layer = laneDictionary[(i, j)];
+                    BoxCollider col = temp.AddComponent<BoxCollider>();
+                    col.center = new Vector3(0, 1.2f, 0);
+                    col.size = new Vector3(x_space, 3, z_space);
+                }
             }
         }
         foreach (KeyValuePair<int, List<(int, int)>> list in cornersDictionary)
@@ -89,13 +95,16 @@ public class GridGenerator : MonoBehaviour
                 temp.transform.position = new Vector3(x_start + (x_space * element.Item1), 0, z_start + (-z_space * element.Item2));
                 temp.transform.Rotate(new Vector3(0, 90f * rotations[element.Item1, element.Item2], 0));
                 temp.layer = laneDictionary.TryGetValue((element.Item1, element.Item2), out defaultLayer) ? laneDictionary[(element.Item1, element.Item2)] : defaultLayer;
+                BoxCollider col = temp.AddComponent<BoxCollider>();
+                col.center = new Vector3(0, 1.2f, 0);
                 if (mapProto[element.Item1, element.Item2] == capPoint)
                 {
-                    BoxCollider col = temp.AddComponent<BoxCollider>();
-                    col.center = new Vector3(0, 1.2f, 0);
                     col.size = new Vector3(3 * x_space, 3, 3 * z_space);
                     temp.AddComponent<CapturePoint>().distanceModifier = (float)Math.Round(2.0f * (float)((Math.Sqrt(Math.Pow(0 - columnLen / 2, 2) + Math.Pow(0 - columnLen, 2)) - Math.Sqrt(Math.Pow(element.Item1 - columnLen / 2, 2) + Math.Pow(element.Item2 - columnLen, 2)))/ Math.Sqrt(Math.Pow(0 - columnLen / 2, 2) + Math.Pow(0 - columnLen, 2))) + 0.1f * (ind+3) ,2);//((Math.Pow(0 - columnLen / 2, 2) + Math.Pow(0 - columnLen, 2) - Math.Pow(element.Item1 - columnLen / 2, 2) + Math.Pow(element.Item2 - columnLen, 2)))));
-
+                }
+                else
+                {
+                    col.size = new Vector3(x_space, 3, z_space);
                 }
                 if (ind==0)
                     FindObjectOfType<GameManager>().pathOne.Add(temp.transform);

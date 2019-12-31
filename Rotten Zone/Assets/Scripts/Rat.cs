@@ -26,13 +26,15 @@ public class Rat : MonoBehaviour
         armatureComponent.animation.Play("walking");
 
         pathPosition = Random.Range(0, 9);
-        Vector3 capturePointSize = FindObjectOfType<CapturePoint>().transform.parent.gameObject.GetComponent<Renderer>().bounds.size;
+        //Vector3 capturePointSize = FindObjectOfType<CapturePoint>().transform.parent.gameObject.GetComponent<Renderer>().bounds.size;
+        Vector3 capturePointSize = new Vector3(1, 1, 1);
         capturePosition = new Vector3(Random.Range(-capturePointSize.x / 2, capturePointSize.x / 2), 0, Random.Range(-capturePointSize.z / 2, capturePointSize.z / 2));
         
         fieldOfView = GetComponent<FieldOfView>();
         fieldOfView.Initialize(scriptableRat.viewDistance, this);
 
         agent.speed = Statistics.speed;
+        Debug.Log("test");
         GetComponent<RatController>().Initialize(this);
     }
 

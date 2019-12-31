@@ -23,7 +23,7 @@ public class RatController : MonoBehaviour
         }
 
         stepOnPath = 1;
-        
+
         currentAction = new Move(rat);
     }
 
