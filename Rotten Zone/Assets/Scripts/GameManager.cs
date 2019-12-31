@@ -57,11 +57,11 @@ public class GameManager : MonoBehaviour
         playerBScore += 30;
         foreach (CapturePoint cap in teamAPoints)
         {
-            playerAScore += cap.income;
+            playerAScore += (int)(cap.income * cap.distanceModifier);
         }
         foreach (CapturePoint cap in teamBPoints)
         {
-            playerBScore += cap.income;
+            playerBScore += (int)(cap.income * cap.distanceModifier);
         }
         Debug.Log(playerAScore);
         Debug.Log(playerBScore);
