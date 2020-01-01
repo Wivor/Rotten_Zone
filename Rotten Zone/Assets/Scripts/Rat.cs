@@ -10,6 +10,7 @@ public class Rat : MonoBehaviour
     public int pathPosition;
     public Vector3 capturePosition;
     public FieldOfView fieldOfView;
+    [SerializeField]
     public CapturePoint capturePoint;
 
     UnityArmatureComponent armatureComponent;
@@ -41,11 +42,23 @@ public class Rat : MonoBehaviour
         Statistics.health -= dmg;
         if (Statistics.health <= 0)
         {
-            if (capturePoint != null)
+            if (GetComponent< RatController>().currentAction is Capture)
             {
-                capturePoint.RemoveRatFromList(this);
+                capturePoint.captureChange -= CapPointChange();
             }
             Destroy(gameObject);
+        }
+    }
+
+    public int CapPointChange()
+    {
+        if (team == Team.A)
+        {
+            return Statistics.capPoints;
+        }
+        else
+        {
+            return -Statistics.capPoints;
         }
     }
 
@@ -60,9 +73,5 @@ public class Rat : MonoBehaviour
         {
             capturePoint = collider.GetComponent<CapturePoint>();
         }
-    }
-
-    void OnTriggerExit(Collider collider)
-    {
     }
 }
