@@ -133,13 +133,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb864b47c36cbb04481dbc5ad88b5984, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  team: 0
+  team: 1
   agent: {fileID: 1092778577020816960}
-  scriptableRat: {fileID: 0}
+  scriptableRat: {fileID: 11400000, guid: e07bc9028cb02bd45ba9503218c1cfc1, type: 2}
   pathPosition: 0
   capturePosition: {x: 0, y: 0, z: 0}
   fieldOfView: {fileID: 0}
   capturePoint: {fileID: 0}
+  Statistics:
+    health: 0
+    attack: 0
+    attackSpeed: 0
+    defence: 0
+    range: 0
+    speed: 0
+    capPoints: 0
+    cost: 0
 --- !u!195 &1092778577020816960
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -188,7 +197,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cd7c32d11b58f94d8e5a5aa6077d994, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rat: {fileID: 0}
+  radius: 0
   layerMask:
     serializedVersion: 2
     m_Bits: 8192
-  enemyRats: []

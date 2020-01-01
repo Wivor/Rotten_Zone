@@ -83,6 +83,8 @@ public class GridGenerator : MonoBehaviour
                 if (laneDictionary.TryGetValue((i, j), out defaultLayer))
                 {
                     temp.layer = laneDictionary[(i, j)];
+                    if(temp.transform.childCount>0)
+                        temp.transform.GetChild(0).gameObject.layer = laneDictionary[(i, j)];
                     BoxCollider col = temp.AddComponent<BoxCollider>();
                     col.center = new Vector3(0, 1.2f, 0);
                     col.size = new Vector3(x_space, 3, z_space);
@@ -97,7 +99,10 @@ public class GridGenerator : MonoBehaviour
                 temp.transform.parent = this.transform;
                 temp.transform.position = new Vector3(x_start + (x_space * element.Item1), 0, z_start + (-z_space * element.Item2));
                 temp.transform.Rotate(new Vector3(0, 90f * rotations[element.Item1, element.Item2], 0));
-                temp.layer = laneDictionary.TryGetValue((element.Item1, element.Item2), out defaultLayer) ? laneDictionary[(element.Item1, element.Item2)] : defaultLayer;
+                int layerTemp = laneDictionary.TryGetValue((element.Item1, element.Item2), out defaultLayer) ? laneDictionary[(element.Item1, element.Item2)] : defaultLayer;
+                temp.layer = layerTemp;
+                if (temp.transform.childCount > 0)
+                    temp.transform.GetChild(0).gameObject.layer = layerTemp;
                 BoxCollider col = temp.AddComponent<BoxCollider>();
                 col.center = new Vector3(0, 1.2f, 0);
                 if (mapProto[element.Item1, element.Item2] == capPoint)
