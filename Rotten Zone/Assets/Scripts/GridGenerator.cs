@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class GridGenerator : MonoBehaviour
 {
@@ -45,6 +46,8 @@ public class GridGenerator : MonoBehaviour
             Instantiate(preFab, new Vector3(x_start + (x_space * (i % columnLen)),1, z_start + (-z_space * (i / columnLen))), Quaternion.identity);
         }*/
         generateFromArray();
+
+        FindObjectsOfType<NavMeshSurface>().ToList().ForEach(navMesh => navMesh.BuildNavMesh());
     }
 
     // Update is called once per frame
