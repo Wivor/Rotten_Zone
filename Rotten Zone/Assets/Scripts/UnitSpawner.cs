@@ -31,19 +31,23 @@ public class UnitSpawner : MonoBehaviour
 
     public void SpawnUnit(int laneID)
     {
+        Debug.Log(laneID);
         switch (laneID)
         {
             case 9:
                 GameObject rat1 = Instantiate(rats[currentRat]);
                 rat1.GetComponent<NavMeshAgent>().agentTypeID = NavMesh.GetSettingsByIndex(2).agentTypeID;
+                rat1.transform.position = GetComponent<GameManager>().pathOne[0].transform.position;
                 break;
             case 10:
                 GameObject rat2 = Instantiate(rats[currentRat]);
                 rat2.GetComponent<NavMeshAgent>().agentTypeID = NavMesh.GetSettingsByIndex(1).agentTypeID;
+                rat2.transform.position = GetComponent<GameManager>().pathTwo[0].transform.position;
                 break;
             case 11:
                 GameObject rat3 = Instantiate(rats[currentRat]);
                 rat3.GetComponent<NavMeshAgent>().agentTypeID = int.Parse(NavMesh.GetSettingsNameFromID(0));
+                rat3.transform.position = GetComponent<GameManager>().pathThree[0].transform.position;
                 break;
         }
     }
