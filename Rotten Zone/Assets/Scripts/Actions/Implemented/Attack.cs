@@ -11,6 +11,11 @@ public class Attack : Action
         OnStart();
     }
 
+    public override void OnEnd()
+    {
+        
+    }
+
     public override void OnStart()
     {
         timer = new Timer(Time.deltaTime, rat.Statistics.attackSpeed, Action);
