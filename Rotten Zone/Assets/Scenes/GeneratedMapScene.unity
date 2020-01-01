@@ -556,7 +556,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52d52dca159542349bf55845f2119c60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rat1: {fileID: 0}
-  rat2: {fileID: 0}
-  rat3: {fileID: 0}
+  rat1: {fileID: 1092778577020816967, guid: 1902afc8a948e79468a367069b8b81ea, type: 3}
+  rat2: {fileID: 1092778577020816967, guid: 1902afc8a948e79468a367069b8b81ea, type: 3}
+  rat3: {fileID: 1092778577020816967, guid: 1902afc8a948e79468a367069b8b81ea, type: 3}
   currentRat: 1
