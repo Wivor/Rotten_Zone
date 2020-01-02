@@ -19,7 +19,7 @@
         {
             ratController.SetActionTo(new Move(rat));
         }
-        else if (rat.scriptableRat.range >= rat.agent.remainingDistance)
+        else if (rat.Statistics.range >= rat.agent.remainingDistance)
         {
             ratController.SetActionTo(new Attack(rat, enemy));
         }

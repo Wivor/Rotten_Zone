@@ -56,12 +56,12 @@ public class CapturePoint : MonoBehaviour
     {
         if (rat.team == Team.A)
         {
-            captureChange -= rat.scriptableRat.capPoints;
+            captureChange -= rat.Statistics.capPoints;
             ratsAInRange.Remove(rat);
         }
         else
         {
-            captureChange += rat.scriptableRat.capPoints;
+            captureChange += rat.Statistics.capPoints;
             ratsBInRange.Remove(rat);
         }
     }
@@ -70,12 +70,12 @@ public class CapturePoint : MonoBehaviour
     {
         if (rat.team == Team.A)
         {
-            captureChange += rat.scriptableRat.capPoints;
+            captureChange += rat.Statistics.capPoints;
             ratsAInRange.Add(rat);
         }
         else
         {
-            captureChange -= rat.scriptableRat.capPoints;
+            captureChange -= rat.Statistics.capPoints;
             ratsBInRange.Add(rat);
         }
     }

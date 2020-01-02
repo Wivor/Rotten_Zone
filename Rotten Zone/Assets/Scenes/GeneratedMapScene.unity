@@ -529,7 +529,6 @@ MonoBehaviour:
   pathOne: []
   pathTwo: []
   pathThree: []
-  positions: []
 --- !u!4 &1784680538
 Transform:
   m_ObjectHideFlags: 0
@@ -556,7 +555,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52d52dca159542349bf55845f2119c60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rat1: {fileID: 1092778577020816967, guid: 1902afc8a948e79468a367069b8b81ea, type: 3}
-  rat2: {fileID: 1092778577020816967, guid: 1902afc8a948e79468a367069b8b81ea, type: 3}
-  rat3: {fileID: 1092778577020816967, guid: 1902afc8a948e79468a367069b8b81ea, type: 3}
+  ratPrefab: {fileID: 1092778577020816967, guid: 1902afc8a948e79468a367069b8b81ea,
+    type: 3}
+  rat1: {fileID: 11400000, guid: e07bc9028cb02bd45ba9503218c1cfc1, type: 2}
+  rat2: {fileID: 11400000, guid: e07bc9028cb02bd45ba9503218c1cfc1, type: 2}
+  rat3: {fileID: 11400000, guid: 42a392a5fcc0a044ba4ee0d80fcaa6b0, type: 2}
   currentRat: 1

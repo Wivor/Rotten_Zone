@@ -4,6 +4,7 @@ using System;
 [Serializable]
 public class Statistics
 {
+    public bool ranged;
     public int health;
     public int attack;
     public int attackSpeed;
@@ -15,6 +16,7 @@ public class Statistics
     
     public Statistics(ScriptableRat scriptableRat)
     {
+        ranged = scriptableRat.ranged;
         health = scriptableRat.health;
         attack = scriptableRat.attack;
         attackSpeed = scriptableRat.attackSpeed;

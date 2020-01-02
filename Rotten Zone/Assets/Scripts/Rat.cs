@@ -6,7 +6,6 @@ public class Rat : MonoBehaviour
 {
     public Team team;
     public NavMeshAgent agent;
-    public ScriptableRat scriptableRat;
     public int pathPosition;
     public Vector3 capturePosition;
     public FieldOfView fieldOfView;
@@ -17,7 +16,7 @@ public class Rat : MonoBehaviour
     [SerializeField]
     public Statistics Statistics;
 
-    void Start()
+    public void Initialize(ScriptableRat scriptableRat)
     {
         Statistics = new Statistics(scriptableRat);
 
@@ -52,7 +51,7 @@ public class Rat : MonoBehaviour
 
     public bool IsRanged()
     {
-        return scriptableRat.ranged;
+        return Statistics.ranged;
     }
 
     void OnTriggerEnter(Collider collider)
