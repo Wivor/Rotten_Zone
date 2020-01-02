@@ -6,7 +6,6 @@ public class Rat : MonoBehaviour
 {
     public Team team;
     public NavMeshAgent agent;
-    public ScriptableRat scriptableRat;
     public int pathPosition;
     public Vector3 capturePosition;
     public FieldOfView fieldOfView;
@@ -18,7 +17,7 @@ public class Rat : MonoBehaviour
     [SerializeField]
     public Statistics Statistics;
 
-    void Start()
+    public void Initialize(ScriptableRat scriptableRat)
     {
         Statistics = new Statistics(scriptableRat);
 
@@ -27,7 +26,8 @@ public class Rat : MonoBehaviour
         armatureComponent.animation.Play("walking");
 
         pathPosition = Random.Range(0, 9);
-        Vector3 capturePointSize = FindObjectOfType<CapturePoint>().transform.parent.gameObject.GetComponent<Renderer>().bounds.size;
+        //Vector3 capturePointSize = FindObjectOfType<CapturePoint>().transform.parent.gameObject.GetComponent<Renderer>().bounds.size;
+        Vector3 capturePointSize = new Vector3(1, 1, 1);
         capturePosition = new Vector3(Random.Range(-capturePointSize.x / 2, capturePointSize.x / 2), 0, Random.Range(-capturePointSize.z / 2, capturePointSize.z / 2));
         
         fieldOfView = GetComponent<FieldOfView>();
@@ -64,7 +64,7 @@ public class Rat : MonoBehaviour
 
     public bool IsRanged()
     {
-        return scriptableRat.ranged;
+        return Statistics.ranged;
     }
 
     void OnTriggerEnter(Collider collider)
