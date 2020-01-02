@@ -12,8 +12,6 @@ public class CapturePoint : MonoBehaviour
 
     public int income = 50;
     public int captureChange;
-    public List<Rat> ratsAInRange = new List<Rat>();
-    public List<Rat> ratsBInRange = new List<Rat>();
 
     void FixedUpdate()
     {
@@ -36,47 +34,5 @@ public class CapturePoint : MonoBehaviour
                     FindObjectOfType<GameManager>().teamAPoints.Remove(this);
                 GetComponent<Renderer>().material = teamBMaterial;
             }
-    }
-
-    void OnTriggerEnter(Collider collider)
-    {
-        Rat rat = collider.gameObject.GetComponent<Rat>();
-
-        AddRatToList(rat);
-    }
-
-    void OnTriggerExit(Collider collider)
-    {
-        Rat rat = collider.gameObject.GetComponent<Rat>();
-
-        RemoveRatFromList(rat);
-    }
-
-    public void RemoveRatFromList(Rat rat)
-    {
-        if (rat.team == Team.A)
-        {
-            captureChange -= rat.Statistics.capPoints;
-            ratsAInRange.Remove(rat);
-        }
-        else
-        {
-            captureChange += rat.Statistics.capPoints;
-            ratsBInRange.Remove(rat);
-        }
-    }
-
-    public void AddRatToList(Rat rat)
-    {
-        if (rat.team == Team.A)
-        {
-            captureChange += rat.Statistics.capPoints;
-            ratsAInRange.Add(rat);
-        }
-        else
-        {
-            captureChange -= rat.Statistics.capPoints;
-            ratsBInRange.Add(rat);
-        }
     }
 }

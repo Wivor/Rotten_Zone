@@ -8,6 +8,13 @@
     public override void OnStart()
     {
         rat.agent.SetDestination(rat.capturePoint.transform.position + rat.capturePosition);
+        rat.capturePoint.captureChange += rat.CapPointChange();
+    }
+
+    public override void OnEnd()
+    {
+        rat.capturePoint.captureChange -= rat.CapPointChange();
+        rat.capturePoint = null;
     }
 
     public override void Update()

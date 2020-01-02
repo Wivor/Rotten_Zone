@@ -1,4 +1,4 @@
-﻿public class Approach : Action
+﻿public abstract class Approach : Action
 {
     Rat enemy;
 
@@ -11,6 +11,11 @@
     public override void OnStart()
     {
         rat.agent.SetDestination(enemy.transform.position);
+    }
+
+    public override void OnEnd()
+    {
+
     }
 
     public override void Update()
