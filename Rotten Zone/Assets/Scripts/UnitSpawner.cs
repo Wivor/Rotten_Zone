@@ -23,7 +23,12 @@ public class UnitSpawner : MonoBehaviour
 
     public void SpawnUnit(int laneID)
     {
-        Debug.Log(laneID);
+        int score = GetComponent<GameManager>().playerAScore;
+
+        if (rats[currentRat].cost > score)
+            return;
+        else
+            GetComponent<GameManager>().playerAScore -= rats[currentRat].cost;
         switch (laneID)
         {
             case 9:
