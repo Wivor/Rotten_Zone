@@ -34,7 +34,7 @@ public class GridGenerator : MonoBehaviour
     private Dictionary<int, List<(int,int)>> cornersDictionary;
     private Dictionary<(int, int), int> laneDictionary;
     private List<Vector3> positions = new List<Vector3>();
-    
+
     private float radius = 0.35f;
 
     private static System.Random random;
@@ -95,11 +95,11 @@ public class GridGenerator : MonoBehaviour
                 GameObject temp = Instantiate(mapProto[i, j]);
                 temp.transform.parent = this.transform;
                 temp.transform.position = new Vector3(x_start + (x_space * i), 0, z_start + (-z_space * j));
-                temp.transform.Rotate(new Vector3(0,90f * rotations[i, j], 0));
+                temp.transform.Rotate(new Vector3(0, 90f * rotations[i, j], 0));
                 if (laneDictionary.TryGetValue((i, j), out defaultLayer))
                 {
                     temp.layer = laneDictionary[(i, j)];
-                    if(temp.transform.childCount>0)
+                    if (temp.transform.childCount > 0)
                         temp.transform.GetChild(0).gameObject.layer = laneDictionary[(i, j)];
                     BoxCollider col = temp.AddComponent<BoxCollider>();
                     col.center = new Vector3(0, 1.2f, 0);
@@ -124,21 +124,21 @@ public class GridGenerator : MonoBehaviour
                 if (mapProto[element.Item1, element.Item2] == capPoint)
                 {
                     col.size = new Vector3(3 * x_space, 3, 3 * z_space);
-                    temp.AddComponent<CapturePoint>().distanceModifier = (float)Math.Round(2.0f * (float)((Math.Sqrt(Math.Pow(0 - columnLen / 2, 2) + Math.Pow(0 - columnLen, 2)) - Math.Sqrt(Math.Pow(element.Item1 - columnLen / 2, 2) + Math.Pow(element.Item2 - columnLen, 2)))/ Math.Sqrt(Math.Pow(0 - columnLen / 2, 2) + Math.Pow(0 - columnLen, 2))) + 0.1f * (ind+3) ,2);//((Math.Pow(0 - columnLen / 2, 2) + Math.Pow(0 - columnLen, 2) - Math.Pow(element.Item1 - columnLen / 2, 2) + Math.Pow(element.Item2 - columnLen, 2)))));
+                    temp.AddComponent<CapturePoint>().distanceModifier = (float)Math.Round(2.0f * (float)((Math.Sqrt(Math.Pow(0 - columnLen / 2, 2) + Math.Pow(0 - columnLen, 2)) - Math.Sqrt(Math.Pow(element.Item1 - columnLen / 2, 2) + Math.Pow(element.Item2 - columnLen, 2))) / Math.Sqrt(Math.Pow(0 - columnLen / 2, 2) + Math.Pow(0 - columnLen, 2))) + 0.1f * (ind + 3), 2);//((Math.Pow(0 - columnLen / 2, 2) + Math.Pow(0 - columnLen, 2) - Math.Pow(element.Item1 - columnLen / 2, 2) + Math.Pow(element.Item2 - columnLen, 2)))));
                 }
-                else if(mapProto[element.Item1, element.Item2] == baseObject)
+                else if (mapProto[element.Item1, element.Item2] == baseObject)
                 {
-                    col.size = new Vector3(x_space, 3,z_space);
+                    col.size = new Vector3(x_space, 3, z_space);
                 }
                 else
                 {
                     col.size = new Vector3(x_space, 3, z_space);
                 }
-                if (ind==2)
+                if (ind == 2)
                     FindObjectOfType<GameManager>().pathOne.Add(temp.transform);
-                else if (ind==1)
+                else if (ind == 1)
                     FindObjectOfType<GameManager>().pathTwo.Add(temp.transform);
-                else if (ind==0)
+                else if (ind == 0)
                     FindObjectOfType<GameManager>().pathThree.Add(temp.transform);
             }
             ind++;
@@ -149,11 +149,11 @@ public class GridGenerator : MonoBehaviour
     {
         mapProto = new GameObject[columnLen, rowLen + 1];
         corners = new bool[columnLen, rowLen + 1, 3];
-        cornerSet1 = new List<(int,int)>();
-        cornerSet2 = new List<(int,int)>();
-        cornerSet3 = new List<(int,int)>();
+        cornerSet1 = new List<(int, int)>();
+        cornerSet2 = new List<(int, int)>();
+        cornerSet3 = new List<(int, int)>();
         laneDictionary = new Dictionary<(int, int), int>();
-        cornersDictionary = new Dictionary<int, System.Collections.Generic.List<(int,int)>>();
+        cornersDictionary = new Dictionary<int, System.Collections.Generic.List<(int, int)>>();
         cornersDictionary[1] = cornerSet1;
         cornersDictionary[2] = cornerSet2;
         cornersDictionary[3] = cornerSet3;
@@ -187,17 +187,17 @@ public class GridGenerator : MonoBehaviour
         //mapProto[columnLen / 2, columnLen] = 7; //cap point
 
         lastPoint = Tuple.Create(columnLen / 2 - 2, 0);
-        GeneratePoints(1, columnLen - 2, columnLen / 2 - 2, 0, 3, 1);
+        GeneratePoints(1, columnLen - 2, columnLen / 2 - 3, 1, 3, 1);
         lastPoint = Tuple.Create(columnLen / 2, 0);
-        GeneratePoints(1, columnLen - 3, columnLen / 2 + 1, columnLen / 2 - 1, 1, 2);
+        GeneratePoints(10, columnLen - 3, columnLen / 2 + 1, columnLen / 2 - 1, 1, 2);
         lastPoint = Tuple.Create(columnLen / 2 + 2, 0);
-        GeneratePoints(1, columnLen - 2, columnLen, columnLen / 2 + 2, 2, 3);
+        GeneratePoints(1, columnLen - 2, columnLen - 1, columnLen / 2 + 3, 2, 3);
         CreateCapPoint(columnLen / 2, columnLen, 12);
         for (int i = 0; i <= columnLen - 1; i++)
         {
-            for (int j = 0; j <= rowLen/2 /*?? <= columnLen*/; j++)
+            for (int j = 0; j <= rowLen / 2 /*?? <= columnLen*/; j++)
             {
-                if(mapProto[i, j] == corridorCorner)
+                if (mapProto[i, j] == corridorCorner)
                     mapProto[columnLen - i - 1, rowLen - j] = corridorCornerShort;
                 else if (mapProto[i, j] == corridorCornerShort)
                     mapProto[columnLen - i - 1, rowLen - j] = corridorCorner;
@@ -300,7 +300,7 @@ public class GridGenerator : MonoBehaviour
         }
         if (Math.Abs(currentRow - endPoint.Item1) >= 2)
         {
-            if (currentRow - endPoint.Item1 > 0) 
+            if (currentRow - endPoint.Item1 > 0)
             {
                 rotations[currentRow, currentCol] = 2;
                 mapProto[currentRow, currentCol] = corridorCorner;
@@ -327,7 +327,7 @@ public class GridGenerator : MonoBehaviour
             laneDictionary[(currentRow, currentCol)] = laneID + 8;
             laneDictionary[(columnLen - currentRow - 1, rowLen - currentCol)] = laneID + 8;
         }
-        if(currentRow == columnLen / 2 && currentCol == columnLen - 1)
+        if (currentRow == columnLen / 2 && currentCol == columnLen - 1)
             cornersDictionary[laneID].Add((currentRow, currentCol + 1));
         else
             cornersDictionary[laneID].Add((currentRow, currentCol));
