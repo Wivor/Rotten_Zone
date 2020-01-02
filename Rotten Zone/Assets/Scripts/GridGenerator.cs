@@ -110,6 +110,10 @@ public class GridGenerator : MonoBehaviour
                     col.size = new Vector3(3 * x_space, 3, 3 * z_space);
                     temp.AddComponent<CapturePoint>().distanceModifier = (float)Math.Round(2.0f * (float)((Math.Sqrt(Math.Pow(0 - columnLen / 2, 2) + Math.Pow(0 - columnLen, 2)) - Math.Sqrt(Math.Pow(element.Item1 - columnLen / 2, 2) + Math.Pow(element.Item2 - columnLen, 2)))/ Math.Sqrt(Math.Pow(0 - columnLen / 2, 2) + Math.Pow(0 - columnLen, 2))) + 0.1f * (ind+3) ,2);//((Math.Pow(0 - columnLen / 2, 2) + Math.Pow(0 - columnLen, 2) - Math.Pow(element.Item1 - columnLen / 2, 2) + Math.Pow(element.Item2 - columnLen, 2)))));
                 }
+                else if(mapProto[element.Item1, element.Item2] == baseObject)
+                {
+                    col.size = new Vector3(x_space, 3,z_space);
+                }
                 else
                 {
                     col.size = new Vector3(x_space, 3, z_space);
@@ -152,6 +156,12 @@ public class GridGenerator : MonoBehaviour
         mapProto[columnLen / 2 + 2, 0] = transparent;
         mapProto[columnLen / 2 - 1, 0] = transparent;
         mapProto[columnLen / 2 - 2, 0] = transparent;
+        laneDictionary[(columnLen / 2 + 2, 0)] = 12;
+        laneDictionary[(columnLen / 2 + 2, rowLen)] = 12;
+        laneDictionary[(columnLen / 2 - 2, 0)] = 12;
+        laneDictionary[(columnLen / 2 - 2, rowLen)] = 12;
+        laneDictionary[(columnLen / 2, 0)] = 12;
+        laneDictionary[(columnLen / 2, rowLen)] = 12;
 
         corners[columnLen / 2 - 2, 0, 0] = true;
         corners[columnLen / 2, 0, 1] = true;
