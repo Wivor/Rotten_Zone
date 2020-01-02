@@ -17,7 +17,7 @@ public class RatController : MonoBehaviour
         this.rat = rat;
         path = new List<Transform>(FindObjectOfType<GameManager>().paths[int.Parse(NavMesh.GetSettingsNameFromID(rat.agent.agentTypeID))]);
 
-        if (rat.team == Team.A)
+        if (rat.team == Team.B)
         {
             path.Reverse();
         }

@@ -465,15 +465,15 @@ MonoBehaviour:
   z_space: 6.4
   background: {fileID: 5750373648684388991, guid: f663d33edfc832746938a35875bf509a,
     type: 3}
-  baseObject: {fileID: -927199367670048503, guid: 188ea1abd8048ad4eb676f5c12d266e3,
+  baseObject: {fileID: 1915360751638894894, guid: 35bc8480131fb6847931bf1db348f5a7,
     type: 3}
-  capPoint: {fileID: -927199367670048503, guid: 26a17164eda604549a11e38a0f8ddd25,
+  capPoint: {fileID: 8244502482457660585, guid: e5032154de47a594d846ef06582d1565,
     type: 3}
-  corridorCorner: {fileID: -927199367670048503, guid: e55e25dd67a89a2488cc1acd70f2e4c5,
+  corridorCorner: {fileID: 6125564715236147308, guid: 6df7b63fb14f50d41a47fd76bb42081f,
     type: 3}
-  corridorCornerShort: {fileID: -927199367670048503, guid: 5d29e1cc815f63d42b35c622ac5574fd,
+  corridorCornerShort: {fileID: 5379028688586164339, guid: 72a8f7dd180d49e478f0fb33b7fcc503,
     type: 3}
-  corridorStraight: {fileID: -927199367670048503, guid: f7d815fa256713a49aa2a88d30cacdea,
+  corridorStraight: {fileID: 7306915325232135366, guid: 2dc13ad17f4f98646bc701715900a707,
     type: 3}
   transparent: {fileID: 2138745184322304777, guid: 7331ddb76f1226a44b7b7e2262c567ed,
     type: 3}

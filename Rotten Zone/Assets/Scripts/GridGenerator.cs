@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
 
 public class GridGenerator : MonoBehaviour
 {
@@ -32,6 +33,9 @@ public class GridGenerator : MonoBehaviour
     private List<(int, int)> cornerSet3;
     private Dictionary<int, List<(int,int)>> cornersDictionary;
     private Dictionary<(int, int), int> laneDictionary;
+    private List<Vector3> positions = new List<Vector3>();
+    
+    private float radius = 0.35f;
 
     private static System.Random random;
 
@@ -48,12 +52,24 @@ public class GridGenerator : MonoBehaviour
         generateFromArray();
 
         FindObjectsOfType<NavMeshSurface>().ToList().ForEach(navMesh => navMesh.BuildNavMesh());
+
+        SetWaypointsForCorners();
     }
 
     // Update is called once per frame
     void Update()
     {
 
+    }
+
+    private void SetWaypointsForCorners()
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            positions.Add(new Vector3(Random.Range(-radius, radius), 0, Random.Range(-radius, radius)));
+        }
+
+        FindObjectsOfType<Corner>().ToList().ForEach(corner => corner.Initialize(positions));
     }
 
     private void generateFromArray()
@@ -118,11 +134,11 @@ public class GridGenerator : MonoBehaviour
                 {
                     col.size = new Vector3(x_space, 3, z_space);
                 }
-                if (ind==0)
+                if (ind==2)
                     FindObjectOfType<GameManager>().pathOne.Add(temp.transform);
                 else if (ind==1)
                     FindObjectOfType<GameManager>().pathTwo.Add(temp.transform);
-                else if (ind==2)
+                else if (ind==0)
                     FindObjectOfType<GameManager>().pathThree.Add(temp.transform);
             }
             ind++;
