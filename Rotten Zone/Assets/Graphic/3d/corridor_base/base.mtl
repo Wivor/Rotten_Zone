@@ -1,7 +1,7 @@
 # Blender MTL File: 'base.blend'
-# Material Count: 22
+# Material Count: 27
 
-newmtl palette.002
+newmtl base_flanks
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 1.000000 1.000000 1.000000
@@ -10,9 +10,9 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 1
-map_Kd .
+map_kd base_flanks.png
 
-newmtl palette.004
+newmtl base_flanks.002
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 1.000000 1.000000 1.000000
@@ -21,9 +21,9 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 1
-map_Kd .
+map_kd base_flanks.png
 
-newmtl palette.005
+newmtl base_flanks.003
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 1.000000 1.000000 1.000000
@@ -32,9 +32,9 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 1
-map_Kd .
+map_kd base_flanks.png
 
-newmtl palette.007
+newmtl base_flanks.004
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 1.000000 1.000000 1.000000
@@ -43,9 +43,9 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 1
-map_Kd .
+map_kd base_flanks.png
 
-newmtl palette.010
+newmtl base_flanks.005
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 1.000000 1.000000 1.000000
@@ -54,9 +54,9 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 1
-map_Kd .
+map_kd base_flanks.png
 
-newmtl palette.012
+newmtl brick_cube
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 1.000000 1.000000 1.000000
@@ -65,9 +65,9 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 1
-map_Kd .
+map_kd brick_cube.png
 
-newmtl palette.018
+newmtl brick_cube.002
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 1.000000 1.000000 1.000000
@@ -76,9 +76,9 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 1
-map_Kd .
+map_kd brick_cube.png
 
-newmtl palette.020
+newmtl brick_cube.003
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 1.000000 1.000000 1.000000
@@ -87,9 +87,9 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 1
-map_Kd .
+map_kd brick_cube.png
 
-newmtl palette.021
+newmtl brick_cube.004
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 1.000000 1.000000 1.000000
@@ -98,9 +98,9 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 1
-map_Kd .
+map_kd brick_cube.png
 
-newmtl palette.023
+newmtl brick_cube.005
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 1.000000 1.000000 1.000000
@@ -109,9 +109,9 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 1
-map_Kd .
+map_kd brick_cube.png
 
-newmtl palette.024
+newmtl brick_cube.006
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 1.000000 1.000000 1.000000
@@ -120,9 +120,9 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 1
-map_Kd .
+map_kd brick_cube.png
 
-newmtl palette.025
+newmtl corridor_base_gate
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 1.000000 1.000000 1.000000
@@ -131,9 +131,9 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 1
-map_Kd .
+map_kd corridor_base_gate.png
 
-newmtl palette.026
+newmtl corridor_base_gate.001
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 1.000000 1.000000 1.000000
@@ -142,9 +142,9 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 1
-map_Kd .
+map_kd corridor_base_gate.png
 
-newmtl palette.027
+newmtl corridor_base_gate.002
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 1.000000 1.000000 1.000000
@@ -153,9 +153,9 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 1
-map_Kd .
+map_kd corridor_base_gate.png
 
-newmtl palette.028
+newmtl corridor_point_centrum
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 1.000000 1.000000 1.000000
@@ -164,9 +164,9 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 1
-map_Kd .
+map_kd corridor_point_centrum.png
 
-newmtl palette.029
+newmtl corridor_point_centrum.001
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 1.000000 1.000000 1.000000
@@ -175,9 +175,9 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 1
-map_Kd .
+map_kd corridor_point_centrum.png
 
-newmtl palette.030
+newmtl corridor_point_centrum.002
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 1.000000 1.000000 1.000000
@@ -186,9 +186,9 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 1
-map_Kd .
+map_kd corridor_point_centrum.png
 
-newmtl palette.031
+newmtl corridor_point_centrum.003
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 1.000000 1.000000 1.000000
@@ -197,9 +197,9 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 1
-map_Kd .
+map_kd corridor_point_centrum.png
 
-newmtl palette.032
+newmtl corridor_point_centrum.004
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 1.000000 1.000000 1.000000
@@ -208,9 +208,9 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 1
-map_Kd .
+map_kd corridor_point_centrum.png
 
-newmtl palette.033
+newmtl tower_middle_corner
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 1.000000 1.000000 1.000000
@@ -219,9 +219,9 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 1
-map_Kd .
+map_kd tower_middle_corner.png
 
-newmtl palette.034
+newmtl tower_middle_corner.001
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 1.000000 1.000000 1.000000
@@ -230,9 +230,9 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 1
-map_Kd .
+map_kd tower_middle_corner.png
 
-newmtl palette.035
+newmtl tower_middle_through
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 1.000000 1.000000 1.000000
@@ -241,4 +241,59 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 1
-map_Kd .
+map_kd tower_middle_through.png
+
+newmtl tower_middle_through.001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_kd tower_middle_through.png
+
+newmtl tower_top
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_kd tower_top.png
+
+newmtl tower_top.001
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_kd tower_top.png
+
+newmtl tower_top.002
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_kd tower_top.png
+
+newmtl tower_top.003
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_kd tower_top.png
