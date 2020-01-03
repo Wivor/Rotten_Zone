@@ -43,12 +43,8 @@ public class Rat : MonoBehaviour
         fieldOfView.Initialize(scriptableRat.viewDistance, this);
 
         agent.speed = Statistics.speed;
+        GetComponent<AnimationsController>().Initialize(armatureComponent);
         GetComponent<RatController>().Initialize(this);
-    }
-
-    public void ChangeAnimationTo(string animationName)
-    {
-        armatureComponent.animation.Play(animationName);
     }
 
     public void DealDamage(int dmg)

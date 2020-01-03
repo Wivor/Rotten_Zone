@@ -5,11 +5,13 @@ public abstract class Action
 {
     protected Rat rat;
     protected RatController ratController;
+    protected AnimationsController animationsController;
 
     public Action(Rat rat)
     {
         this.rat = rat;
         ratController = rat.GetComponent<RatController>();
+        animationsController = rat.GetComponent<AnimationsController>();
     }
 
     public abstract void OnStart();

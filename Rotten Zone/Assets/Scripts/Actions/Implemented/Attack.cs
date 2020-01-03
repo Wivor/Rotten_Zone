@@ -27,7 +27,7 @@ public class Attack : Action
     {
         if (enemy == null)
         {
-            ratController.SetActionTo(new Move(rat));
+            ChangeActionTo(new Move(rat));
         }
         else
         {

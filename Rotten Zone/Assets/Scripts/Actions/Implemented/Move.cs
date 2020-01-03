@@ -14,7 +14,7 @@
     {
         rat.agent.isStopped = false;
         rat.agent.SetDestination(ratController.GetDestinationOfNextWaypoint());
-        rat.ChangeAnimationTo("walking");
+        animationsController.ChangeAnimationTo("walking");
     }
 
     public override void Update()
