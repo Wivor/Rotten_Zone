@@ -307,16 +307,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
-        type: 3}
-      propertyPath: m_AgentTypeID
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
-        type: 3}
-      propertyPath: m_Radius
-      value: 0.05
-      objectReference: {fileID: 0}
     - target: {fileID: 1092778577020816966, guid: 1902afc8a948e79468a367069b8b81ea,
         type: 3}
       propertyPath: scriptableRat
@@ -331,7 +321,17 @@ PrefabInstance:
     - target: {fileID: 1092778577020816966, guid: 1902afc8a948e79468a367069b8b81ea,
         type: 3}
       propertyPath: team
-      value: 1
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
+        type: 3}
+      propertyPath: m_AgentTypeID
+      value: -1372625422
+      objectReference: {fileID: 0}
+    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 1092778576338093212, guid: 1902afc8a948e79468a367069b8b81ea,
         type: 3}
@@ -525,16 +525,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
-        type: 3}
-      propertyPath: m_AgentTypeID
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
-        type: 3}
-      propertyPath: m_Radius
-      value: 0.05
-      objectReference: {fileID: 0}
     - target: {fileID: 1092778577020816966, guid: 1902afc8a948e79468a367069b8b81ea,
         type: 3}
       propertyPath: scriptableRat
@@ -549,7 +539,17 @@ PrefabInstance:
     - target: {fileID: 1092778577020816966, guid: 1902afc8a948e79468a367069b8b81ea,
         type: 3}
       propertyPath: team
-      value: 1
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
+        type: 3}
+      propertyPath: m_AgentTypeID
+      value: -1372625422
+      objectReference: {fileID: 0}
+    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 1092778576338093212, guid: 1902afc8a948e79468a367069b8b81ea,
         type: 3}
@@ -630,6 +630,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseA: {fileID: 1208085400}
   baseB: {fileID: 1319972441}
+  isPaused: 0
+  playerAScore: 100
+  playerBScore: 100
   pathOne:
   - {fileID: 1319972444}
   - {fileID: 1728750151}
@@ -643,7 +646,6 @@ MonoBehaviour:
   - {fileID: 1319972444}
   - {fileID: 1208085403}
   pathThree: []
-  positions: []
 --- !u!4 &173076167
 Transform:
   m_ObjectHideFlags: 0
@@ -777,16 +779,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
-        type: 3}
-      propertyPath: m_AgentTypeID
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
-        type: 3}
-      propertyPath: m_Radius
-      value: 0.05
-      objectReference: {fileID: 0}
     - target: {fileID: 1092778577020816966, guid: 1902afc8a948e79468a367069b8b81ea,
         type: 3}
       propertyPath: scriptableRat
@@ -801,7 +793,17 @@ PrefabInstance:
     - target: {fileID: 1092778577020816966, guid: 1902afc8a948e79468a367069b8b81ea,
         type: 3}
       propertyPath: team
-      value: 2
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
+        type: 3}
+      propertyPath: m_AgentTypeID
+      value: -1372625422
+      objectReference: {fileID: 0}
+    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 1092778576338093212, guid: 1902afc8a948e79468a367069b8b81ea,
         type: 3}
@@ -952,16 +954,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
-        type: 3}
-      propertyPath: m_AgentTypeID
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
-        type: 3}
-      propertyPath: m_Radius
-      value: 0.05
-      objectReference: {fileID: 0}
     - target: {fileID: 1092778577020816966, guid: 1902afc8a948e79468a367069b8b81ea,
         type: 3}
       propertyPath: scriptableRat
@@ -976,7 +968,17 @@ PrefabInstance:
     - target: {fileID: 1092778577020816966, guid: 1902afc8a948e79468a367069b8b81ea,
         type: 3}
       propertyPath: team
-      value: 1
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
+        type: 3}
+      propertyPath: m_AgentTypeID
+      value: -1372625422
+      objectReference: {fileID: 0}
+    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 1092778576338093212, guid: 1902afc8a948e79468a367069b8b81ea,
         type: 3}
@@ -1376,16 +1378,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
-        type: 3}
-      propertyPath: m_AgentTypeID
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
-        type: 3}
-      propertyPath: m_Radius
-      value: 0.05
-      objectReference: {fileID: 0}
     - target: {fileID: 1092778577020816966, guid: 1902afc8a948e79468a367069b8b81ea,
         type: 3}
       propertyPath: scriptableRat
@@ -1400,7 +1392,17 @@ PrefabInstance:
     - target: {fileID: 1092778577020816966, guid: 1902afc8a948e79468a367069b8b81ea,
         type: 3}
       propertyPath: team
-      value: 1
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
+        type: 3}
+      propertyPath: m_AgentTypeID
+      value: -1372625422
+      objectReference: {fileID: 0}
+    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 1092778576338093212, guid: 1902afc8a948e79468a367069b8b81ea,
         type: 3}
@@ -1630,16 +1632,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
-        type: 3}
-      propertyPath: m_AgentTypeID
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
-        type: 3}
-      propertyPath: m_Radius
-      value: 0.05
-      objectReference: {fileID: 0}
     - target: {fileID: 1092778577020816966, guid: 1902afc8a948e79468a367069b8b81ea,
         type: 3}
       propertyPath: scriptableRat
@@ -1654,7 +1646,17 @@ PrefabInstance:
     - target: {fileID: 1092778577020816966, guid: 1902afc8a948e79468a367069b8b81ea,
         type: 3}
       propertyPath: team
-      value: 1
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
+        type: 3}
+      propertyPath: m_AgentTypeID
+      value: -1372625422
+      objectReference: {fileID: 0}
+    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 1092778576338093212, guid: 1902afc8a948e79468a367069b8b81ea,
         type: 3}
@@ -2131,16 +2133,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
-        type: 3}
-      propertyPath: m_AgentTypeID
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
-        type: 3}
-      propertyPath: m_Radius
-      value: 0.05
-      objectReference: {fileID: 0}
     - target: {fileID: 1092778577020816966, guid: 1902afc8a948e79468a367069b8b81ea,
         type: 3}
       propertyPath: scriptableRat
@@ -2155,7 +2147,17 @@ PrefabInstance:
     - target: {fileID: 1092778577020816966, guid: 1902afc8a948e79468a367069b8b81ea,
         type: 3}
       propertyPath: team
-      value: 1
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
+        type: 3}
+      propertyPath: m_AgentTypeID
+      value: -1372625422
+      objectReference: {fileID: 0}
+    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 1092778576338093212, guid: 1902afc8a948e79468a367069b8b81ea,
         type: 3}
@@ -2463,16 +2465,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
-        type: 3}
-      propertyPath: m_AgentTypeID
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
-        type: 3}
-      propertyPath: m_Radius
-      value: 0.05
-      objectReference: {fileID: 0}
     - target: {fileID: 1092778577020816966, guid: 1902afc8a948e79468a367069b8b81ea,
         type: 3}
       propertyPath: scriptableRat
@@ -2487,7 +2479,17 @@ PrefabInstance:
     - target: {fileID: 1092778577020816966, guid: 1902afc8a948e79468a367069b8b81ea,
         type: 3}
       propertyPath: team
-      value: 1
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
+        type: 3}
+      propertyPath: m_AgentTypeID
+      value: -1372625422
+      objectReference: {fileID: 0}
+    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 1092778576338093212, guid: 1902afc8a948e79468a367069b8b81ea,
         type: 3}
@@ -2573,16 +2575,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
-        type: 3}
-      propertyPath: m_AgentTypeID
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
-        type: 3}
-      propertyPath: m_Radius
-      value: 0.05
-      objectReference: {fileID: 0}
     - target: {fileID: 1092778577020816966, guid: 1902afc8a948e79468a367069b8b81ea,
         type: 3}
       propertyPath: scriptableRat
@@ -2597,7 +2589,17 @@ PrefabInstance:
     - target: {fileID: 1092778577020816966, guid: 1902afc8a948e79468a367069b8b81ea,
         type: 3}
       propertyPath: team
-      value: 2
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
+        type: 3}
+      propertyPath: m_AgentTypeID
+      value: -1372625422
+      objectReference: {fileID: 0}
+    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 1092778576338093212, guid: 1902afc8a948e79468a367069b8b81ea,
         type: 3}
@@ -3755,16 +3757,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
-        type: 3}
-      propertyPath: m_AgentTypeID
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
-        type: 3}
-      propertyPath: m_Radius
-      value: 0.05
-      objectReference: {fileID: 0}
     - target: {fileID: 1092778577020816966, guid: 1902afc8a948e79468a367069b8b81ea,
         type: 3}
       propertyPath: scriptableRat
@@ -3779,7 +3771,17 @@ PrefabInstance:
     - target: {fileID: 1092778577020816966, guid: 1902afc8a948e79468a367069b8b81ea,
         type: 3}
       propertyPath: team
-      value: 1
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
+        type: 3}
+      propertyPath: m_AgentTypeID
+      value: -1372625422
+      objectReference: {fileID: 0}
+    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 1092778576338093212, guid: 1902afc8a948e79468a367069b8b81ea,
         type: 3}
@@ -4001,16 +4003,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
-        type: 3}
-      propertyPath: m_AgentTypeID
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
-        type: 3}
-      propertyPath: m_Radius
-      value: 0.05
-      objectReference: {fileID: 0}
     - target: {fileID: 1092778577020816966, guid: 1902afc8a948e79468a367069b8b81ea,
         type: 3}
       propertyPath: scriptableRat
@@ -4025,7 +4017,17 @@ PrefabInstance:
     - target: {fileID: 1092778577020816966, guid: 1902afc8a948e79468a367069b8b81ea,
         type: 3}
       propertyPath: team
-      value: 1
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
+        type: 3}
+      propertyPath: m_AgentTypeID
+      value: -1372625422
+      objectReference: {fileID: 0}
+    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 1092778576338093212, guid: 1902afc8a948e79468a367069b8b81ea,
         type: 3}
@@ -4129,16 +4131,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
-        type: 3}
-      propertyPath: m_AgentTypeID
-      value: -1372625422
-      objectReference: {fileID: 0}
-    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
-        type: 3}
-      propertyPath: m_Radius
-      value: 0.05
-      objectReference: {fileID: 0}
     - target: {fileID: 1092778577020816966, guid: 1902afc8a948e79468a367069b8b81ea,
         type: 3}
       propertyPath: scriptableRat
@@ -4153,7 +4145,17 @@ PrefabInstance:
     - target: {fileID: 1092778577020816966, guid: 1902afc8a948e79468a367069b8b81ea,
         type: 3}
       propertyPath: team
-      value: 1
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
+        type: 3}
+      propertyPath: m_AgentTypeID
+      value: -1372625422
+      objectReference: {fileID: 0}
+    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 1092778576338093212, guid: 1902afc8a948e79468a367069b8b81ea,
         type: 3}
@@ -4316,16 +4318,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
-        type: 3}
-      propertyPath: m_AgentTypeID
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
-        type: 3}
-      propertyPath: m_Radius
-      value: 0.05
-      objectReference: {fileID: 0}
     - target: {fileID: 1092778577020816966, guid: 1902afc8a948e79468a367069b8b81ea,
         type: 3}
       propertyPath: scriptableRat
@@ -4340,7 +4332,17 @@ PrefabInstance:
     - target: {fileID: 1092778577020816966, guid: 1902afc8a948e79468a367069b8b81ea,
         type: 3}
       propertyPath: team
-      value: 1
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
+        type: 3}
+      propertyPath: m_AgentTypeID
+      value: -1372625422
+      objectReference: {fileID: 0}
+    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 1092778576338093212, guid: 1902afc8a948e79468a367069b8b81ea,
         type: 3}
@@ -4716,16 +4718,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
-        type: 3}
-      propertyPath: m_AgentTypeID
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
-        type: 3}
-      propertyPath: m_Radius
-      value: 0.05
-      objectReference: {fileID: 0}
     - target: {fileID: 1092778577020816966, guid: 1902afc8a948e79468a367069b8b81ea,
         type: 3}
       propertyPath: scriptableRat
@@ -4740,7 +4732,17 @@ PrefabInstance:
     - target: {fileID: 1092778577020816966, guid: 1902afc8a948e79468a367069b8b81ea,
         type: 3}
       propertyPath: team
-      value: 2
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
+        type: 3}
+      propertyPath: m_AgentTypeID
+      value: -1372625422
+      objectReference: {fileID: 0}
+    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 1092778576338093212, guid: 1902afc8a948e79468a367069b8b81ea,
         type: 3}
@@ -4915,16 +4917,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
-        type: 3}
-      propertyPath: m_AgentTypeID
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
-        type: 3}
-      propertyPath: m_Radius
-      value: 0.05
-      objectReference: {fileID: 0}
     - target: {fileID: 1092778577020816966, guid: 1902afc8a948e79468a367069b8b81ea,
         type: 3}
       propertyPath: scriptableRat
@@ -4939,7 +4931,17 @@ PrefabInstance:
     - target: {fileID: 1092778577020816966, guid: 1902afc8a948e79468a367069b8b81ea,
         type: 3}
       propertyPath: team
-      value: 1
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
+        type: 3}
+      propertyPath: m_AgentTypeID
+      value: -1372625422
+      objectReference: {fileID: 0}
+    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 1092778576338093212, guid: 1902afc8a948e79468a367069b8b81ea,
         type: 3}
@@ -5312,16 +5314,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
-        type: 3}
-      propertyPath: m_AgentTypeID
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
-        type: 3}
-      propertyPath: m_Radius
-      value: 0.05
-      objectReference: {fileID: 0}
     - target: {fileID: 1092778577020816966, guid: 1902afc8a948e79468a367069b8b81ea,
         type: 3}
       propertyPath: scriptableRat
@@ -5336,7 +5328,17 @@ PrefabInstance:
     - target: {fileID: 1092778577020816966, guid: 1902afc8a948e79468a367069b8b81ea,
         type: 3}
       propertyPath: team
-      value: 2
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
+        type: 3}
+      propertyPath: m_AgentTypeID
+      value: -1372625422
+      objectReference: {fileID: 0}
+    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 1092778576338093212, guid: 1902afc8a948e79468a367069b8b81ea,
         type: 3}
@@ -5825,16 +5827,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
-        type: 3}
-      propertyPath: m_AgentTypeID
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
-        type: 3}
-      propertyPath: m_Radius
-      value: 0.05
-      objectReference: {fileID: 0}
     - target: {fileID: 1092778577020816966, guid: 1902afc8a948e79468a367069b8b81ea,
         type: 3}
       propertyPath: scriptableRat
@@ -5849,7 +5841,17 @@ PrefabInstance:
     - target: {fileID: 1092778577020816966, guid: 1902afc8a948e79468a367069b8b81ea,
         type: 3}
       propertyPath: team
-      value: 2
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
+        type: 3}
+      propertyPath: m_AgentTypeID
+      value: -1372625422
+      objectReference: {fileID: 0}
+    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 1092778576338093212, guid: 1902afc8a948e79468a367069b8b81ea,
         type: 3}
@@ -5953,16 +5955,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
-        type: 3}
-      propertyPath: m_AgentTypeID
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
-        type: 3}
-      propertyPath: m_Radius
-      value: 0.05
-      objectReference: {fileID: 0}
     - target: {fileID: 1092778577020816966, guid: 1902afc8a948e79468a367069b8b81ea,
         type: 3}
       propertyPath: scriptableRat
@@ -5977,7 +5969,17 @@ PrefabInstance:
     - target: {fileID: 1092778577020816966, guid: 1902afc8a948e79468a367069b8b81ea,
         type: 3}
       propertyPath: team
-      value: 2
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
+        type: 3}
+      propertyPath: m_AgentTypeID
+      value: -1372625422
+      objectReference: {fileID: 0}
+    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 1092778576338093212, guid: 1902afc8a948e79468a367069b8b81ea,
         type: 3}
@@ -6083,16 +6085,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
-        type: 3}
-      propertyPath: m_AgentTypeID
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
-        type: 3}
-      propertyPath: m_Radius
-      value: 0.05
-      objectReference: {fileID: 0}
     - target: {fileID: 1092778577020816966, guid: 1902afc8a948e79468a367069b8b81ea,
         type: 3}
       propertyPath: scriptableRat
@@ -6107,7 +6099,17 @@ PrefabInstance:
     - target: {fileID: 1092778577020816966, guid: 1902afc8a948e79468a367069b8b81ea,
         type: 3}
       propertyPath: team
-      value: 2
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
+        type: 3}
+      propertyPath: m_AgentTypeID
+      value: -1372625422
+      objectReference: {fileID: 0}
+    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 1092778576338093212, guid: 1902afc8a948e79468a367069b8b81ea,
         type: 3}
@@ -6360,16 +6362,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
-        type: 3}
-      propertyPath: m_AgentTypeID
-      value: -1372625422
-      objectReference: {fileID: 0}
-    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
-        type: 3}
-      propertyPath: m_Radius
-      value: 0.05
-      objectReference: {fileID: 0}
     - target: {fileID: 1092778577020816966, guid: 1902afc8a948e79468a367069b8b81ea,
         type: 3}
       propertyPath: scriptableRat
@@ -6384,7 +6376,17 @@ PrefabInstance:
     - target: {fileID: 1092778577020816966, guid: 1902afc8a948e79468a367069b8b81ea,
         type: 3}
       propertyPath: team
-      value: 2
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
+        type: 3}
+      propertyPath: m_AgentTypeID
+      value: -1372625422
+      objectReference: {fileID: 0}
+    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 1092778576338093212, guid: 1902afc8a948e79468a367069b8b81ea,
         type: 3}
@@ -6720,16 +6722,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
-        type: 3}
-      propertyPath: m_AgentTypeID
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
-        type: 3}
-      propertyPath: m_Radius
-      value: 0.05
-      objectReference: {fileID: 0}
     - target: {fileID: 1092778577020816966, guid: 1902afc8a948e79468a367069b8b81ea,
         type: 3}
       propertyPath: scriptableRat
@@ -6744,7 +6736,17 @@ PrefabInstance:
     - target: {fileID: 1092778577020816966, guid: 1902afc8a948e79468a367069b8b81ea,
         type: 3}
       propertyPath: team
-      value: 2
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
+        type: 3}
+      propertyPath: m_AgentTypeID
+      value: -1372625422
+      objectReference: {fileID: 0}
+    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 1092778576338093212, guid: 1902afc8a948e79468a367069b8b81ea,
         type: 3}
@@ -7466,16 +7468,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
-        type: 3}
-      propertyPath: m_AgentTypeID
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
-        type: 3}
-      propertyPath: m_Radius
-      value: 0.05
-      objectReference: {fileID: 0}
     - target: {fileID: 1092778577020816966, guid: 1902afc8a948e79468a367069b8b81ea,
         type: 3}
       propertyPath: scriptableRat
@@ -7490,7 +7482,17 @@ PrefabInstance:
     - target: {fileID: 1092778577020816966, guid: 1902afc8a948e79468a367069b8b81ea,
         type: 3}
       propertyPath: team
-      value: 2
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
+        type: 3}
+      propertyPath: m_AgentTypeID
+      value: -1372625422
+      objectReference: {fileID: 0}
+    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 1092778576338093212, guid: 1902afc8a948e79468a367069b8b81ea,
         type: 3}
@@ -7953,16 +7955,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
-        type: 3}
-      propertyPath: m_AgentTypeID
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
-        type: 3}
-      propertyPath: m_Radius
-      value: 0.05
-      objectReference: {fileID: 0}
     - target: {fileID: 1092778577020816966, guid: 1902afc8a948e79468a367069b8b81ea,
         type: 3}
       propertyPath: scriptableRat
@@ -7977,7 +7969,17 @@ PrefabInstance:
     - target: {fileID: 1092778577020816966, guid: 1902afc8a948e79468a367069b8b81ea,
         type: 3}
       propertyPath: team
-      value: 2
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
+        type: 3}
+      propertyPath: m_AgentTypeID
+      value: -1372625422
+      objectReference: {fileID: 0}
+    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 1092778576338093212, guid: 1902afc8a948e79468a367069b8b81ea,
         type: 3}
@@ -8350,16 +8352,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
-        type: 3}
-      propertyPath: m_AgentTypeID
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
-        type: 3}
-      propertyPath: m_Radius
-      value: 0.05
-      objectReference: {fileID: 0}
     - target: {fileID: 1092778577020816966, guid: 1902afc8a948e79468a367069b8b81ea,
         type: 3}
       propertyPath: scriptableRat
@@ -8374,7 +8366,17 @@ PrefabInstance:
     - target: {fileID: 1092778577020816966, guid: 1902afc8a948e79468a367069b8b81ea,
         type: 3}
       propertyPath: team
-      value: 2
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
+        type: 3}
+      propertyPath: m_AgentTypeID
+      value: -1372625422
+      objectReference: {fileID: 0}
+    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 1092778576338093212, guid: 1902afc8a948e79468a367069b8b81ea,
         type: 3}
@@ -8708,16 +8710,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
-        type: 3}
-      propertyPath: m_AgentTypeID
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
-        type: 3}
-      propertyPath: m_Radius
-      value: 0.05
-      objectReference: {fileID: 0}
     - target: {fileID: 1092778577020816966, guid: 1902afc8a948e79468a367069b8b81ea,
         type: 3}
       propertyPath: scriptableRat
@@ -8732,7 +8724,17 @@ PrefabInstance:
     - target: {fileID: 1092778577020816966, guid: 1902afc8a948e79468a367069b8b81ea,
         type: 3}
       propertyPath: team
-      value: 1
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
+        type: 3}
+      propertyPath: m_AgentTypeID
+      value: -1372625422
+      objectReference: {fileID: 0}
+    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 1092778576338093212, guid: 1902afc8a948e79468a367069b8b81ea,
         type: 3}
@@ -8818,16 +8820,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
-        type: 3}
-      propertyPath: m_AgentTypeID
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
-        type: 3}
-      propertyPath: m_Radius
-      value: 0.05
-      objectReference: {fileID: 0}
     - target: {fileID: 1092778577020816966, guid: 1902afc8a948e79468a367069b8b81ea,
         type: 3}
       propertyPath: scriptableRat
@@ -8842,7 +8834,17 @@ PrefabInstance:
     - target: {fileID: 1092778577020816966, guid: 1902afc8a948e79468a367069b8b81ea,
         type: 3}
       propertyPath: team
-      value: 2
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
+        type: 3}
+      propertyPath: m_AgentTypeID
+      value: -1372625422
+      objectReference: {fileID: 0}
+    - target: {fileID: 1092778577020816960, guid: 1902afc8a948e79468a367069b8b81ea,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 1092778576338093212, guid: 1902afc8a948e79468a367069b8b81ea,
         type: 3}

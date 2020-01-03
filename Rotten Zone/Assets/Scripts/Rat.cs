@@ -17,24 +17,38 @@ public class Rat : MonoBehaviour
     [SerializeField]
     public Statistics Statistics;
 
+    //-------------- FOR ANIMATION TESTING
+
+    public ScriptableRat scriptableRat;
+    private void Start()
+    {
+        Initialize(scriptableRat);
+    }
+
+    //-------------- FOR ANIMATION TESTING
+
     public void Initialize(ScriptableRat scriptableRat)
     {
         Statistics = new Statistics(scriptableRat);
 
         UnityFactory.factory.LoadData(scriptableRat.dragonBonesData);
         armatureComponent = UnityFactory.factory.BuildArmatureComponent("melee_unit", gameObject: transform.GetChild(0).gameObject);
-        armatureComponent.animation.Play("walking");
 
         pathPosition = Random.Range(0, 9);
         //Vector3 capturePointSize = FindObjectOfType<CapturePoint>().transform.parent.gameObject.GetComponent<Renderer>().bounds.size;
         Vector3 capturePointSize = new Vector3(1, 1, 1);
         capturePosition = new Vector3(Random.Range(-capturePointSize.x / 2, capturePointSize.x / 2), 0, Random.Range(-capturePointSize.z / 2, capturePointSize.z / 2));
-        
+
         fieldOfView = GetComponent<FieldOfView>();
         fieldOfView.Initialize(scriptableRat.viewDistance, this);
 
         agent.speed = Statistics.speed;
         GetComponent<RatController>().Initialize(this);
+    }
+
+    public void ChangeAnimationTo(string animationName)
+    {
+        armatureComponent.animation.Play(animationName);
     }
 
     public void DealDamage(int dmg)
