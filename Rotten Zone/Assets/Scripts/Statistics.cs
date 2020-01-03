@@ -9,7 +9,7 @@ public class Statistics
     public int attack;
     public int attackSpeed;
     public int defence;
-    public int range;
+    public float range;
     public int speed;
     public int capPoints;
     public int cost;

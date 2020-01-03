@@ -21,7 +21,7 @@ MonoBehaviour:
   speed: 4
   capPoints: 5
   cost: 50
-  range: 1
+  range: 0.25
   viewDistance: 10
   attackClip: {fileID: 0}
   deathClip: {fileID: 0}

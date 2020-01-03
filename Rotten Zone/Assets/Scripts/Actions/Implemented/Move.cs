@@ -12,6 +12,7 @@
 
     public override void OnStart()
     {
+        rat.agent.isStopped = false;
         rat.agent.SetDestination(ratController.GetDestinationOfNextWaypoint());
         rat.ChangeAnimationTo("walking");
     }
@@ -36,7 +37,7 @@
     {
         if (rat.capturePoint != null && (rat.capturePoint.owner != rat.team))
         {
-            ratController.SetActionTo(new Capture(rat));
+            ChangeActionTo(new Capture(rat));
         }
     }
 }

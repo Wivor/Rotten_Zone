@@ -10,6 +10,7 @@
 
     public override void OnStart()
     {
+        rat.agent.isStopped = false;
         rat.agent.SetDestination(enemy.transform.position);
     }
 
@@ -26,6 +27,7 @@
         }
         else if (rat.Statistics.range >= rat.agent.remainingDistance)
         {
+            rat.agent.isStopped = true;
             ratController.SetActionTo(new Attack(rat, enemy));
         }
         else

@@ -137,12 +137,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   team: 1
   agent: {fileID: 1092778577020816960}
-  scriptableRat: {fileID: 11400000, guid: e07bc9028cb02bd45ba9503218c1cfc1, type: 2}
   pathPosition: 0
   capturePosition: {x: 0, y: 0, z: 0}
   fieldOfView: {fileID: 0}
   capturePoint: {fileID: 0}
   Statistics:
+    ranged: 0
     health: 0
     attack: 0
     attackSpeed: 0
@@ -151,6 +151,7 @@ MonoBehaviour:
     speed: 0
     capPoints: 0
     cost: 0
+  scriptableRat: {fileID: 0}
 --- !u!195 &1092778577020816960
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -162,7 +163,7 @@ NavMeshAgent:
   m_AgentTypeID: -1372625422
   m_Radius: 0.1
   m_Speed: 3.5
-  m_Acceleration: 8
+  m_Acceleration: 3.5
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 1
