@@ -8,6 +8,8 @@
     public delegate void OnTimerEnd();
     public OnTimerEnd onEnd;
 
+    public bool reapeat = true;
+
     public Timer(float deltaTime, float duration, OnTimerEnd action)
     {
         this.deltaTime = deltaTime;
@@ -29,6 +31,7 @@
     void timerEnded()
     {
         onEnd.Invoke();
-        targetTime = duration;
+        if (reapeat)
+            targetTime = duration;
     }
 }

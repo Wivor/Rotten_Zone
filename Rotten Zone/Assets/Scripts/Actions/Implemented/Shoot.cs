@@ -18,7 +18,8 @@ public class Shoot : Action
 
     public override void OnStart()
     {
-        rat.agent.destination = rat.transform.position;
+        rat.agent.velocity = Vector3.zero;
+        rat.agent.isStopped = true;
         timer = new Timer(Time.deltaTime, rat.Statistics.attackSpeed, Action);
     }
 

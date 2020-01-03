@@ -38,7 +38,7 @@ public abstract class Action
     {
         if (rat.fieldOfView.GetEnemyRatsInRange().Count > 0)
         {
-            ratController.SetActionTo(new Shoot(rat, rat.fieldOfView.GetEnemyRatsInRange().OrderByDescending(r => Vector3.Distance(rat.transform.position, r.transform.position)).FirstOrDefault()));
+            ChangeActionTo(new Shoot(rat, rat.fieldOfView.GetEnemyRatsInRange().OrderByDescending(r => Vector3.Distance(rat.transform.position, r.transform.position)).FirstOrDefault()));
         }
     }
 
@@ -56,8 +56,8 @@ public abstract class Action
             {
                 if (!ratControllerOfEnemy.IsFighting())
                 {
-                    ratController.SetActionTo(new ApproachMeele(rat, enemy));
-                    ratControllerOfEnemy.SetActionTo(new ApproachMeele(enemy, rat));
+                    ChangeActionTo(new ApproachMeele(rat, enemy));
+                    ratControllerOfEnemy.currentAction.ChangeActionTo(new ApproachMeele(enemy, rat));
                 }
             }
         }
