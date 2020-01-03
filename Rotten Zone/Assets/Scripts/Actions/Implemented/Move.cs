@@ -13,6 +13,7 @@
     public override void OnStart()
     {
         rat.agent.SetDestination(ratController.GetDestinationOfNextWaypoint());
+        rat.ChangeAnimationTo("walking");
     }
 
     public override void Update()

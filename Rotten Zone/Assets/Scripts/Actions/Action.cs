@@ -16,6 +16,12 @@ public abstract class Action
     public abstract void OnEnd();
     public abstract void Update();
 
+    protected void ChangeActionTo(Action action)
+    {
+        OnEnd();
+        ratController.SetActionTo(action);
+    }
+
     protected void SearchForAviableEnemy()
     {
         if (rat.IsRanged())
