@@ -1,7 +1,7 @@
 # Blender MTL File: 'corridor_point.blend'
-# Material Count: 8
+# Material Count: 9
 
-newmtl palette
+newmtl bend
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 1.000000 1.000000 1.000000
@@ -10,9 +10,9 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 1
-map_Kd C:\\Users\\wojtek\\Desktop\\PGiAnUP_2019_Dzienni_10\\Rotten Zone\\models\\corridor_point\\components\\corridor_point_centrum\\corridor_point_centrum.png
+map_kd bend.png
 
-newmtl palette.003
+newmtl bend.001
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 1.000000 1.000000 1.000000
@@ -21,9 +21,9 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 1
-map_Kd C:\\Users\\wojtek\\Desktop\\PGiAnUP_2019_Dzienni_10\\Rotten Zone\\models\\corridor_point\\components\\corridor_bend_5\\corridor_bend_5.png
+map_kd bend.png
 
-newmtl palette.007
+newmtl bend.002
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 1.000000 1.000000 1.000000
@@ -32,9 +32,9 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 1
-map_Kd C:\\Users\\wojtek\\Desktop\\PGiAnUP_2019_Dzienni_10\\Rotten Zone\\models\\corridor_point\\components\\corridor_bend_4\\corridor_bend_4.png
+map_kd bend.png
 
-newmtl palette.008
+newmtl bend.003
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 1.000000 1.000000 1.000000
@@ -43,9 +43,9 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 1
-map_Kd C:\\Users\\wojtek\\Desktop\\PGiAnUP_2019_Dzienni_10\\Rotten Zone\\models\\corridor_point\\components\\corridor_bend_5\\corridor_bend_5.png
+map_kd bend.png
 
-newmtl palette.009
+newmtl corridor_gate_1
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 1.000000 1.000000 1.000000
@@ -54,9 +54,9 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 1
-map_Kd C:\\Users\\wojtek\\Desktop\\PGiAnUP_2019_Dzienni_10\\Rotten Zone\\models\\corridor_point\\components\\corridor_bend_4\\corridor_bend_4.png
+map_kd corridor_gate_1.png
 
-newmtl palette.010
+newmtl corridor_point_centrum
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 1.000000 1.000000 1.000000
@@ -65,9 +65,9 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 1
-map_Kd C:\\Users\\wojtek\\Desktop\\PGiAnUP_2019_Dzienni_10\\Rotten Zone\\models\\corridor_point\\components\\corridor_gate_1\\corridor_gate_1.png
+map_kd corridor_point_centrum.png
 
-newmtl palette.012
+newmtl gate_floor
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 1.000000 1.000000 1.000000
@@ -76,9 +76,9 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 1
-map_Kd C:\\Users\\wojtek\\Desktop\\PGiAnUP_2019_Dzienni_10\\Rotten Zone\\models\\corridor_point\\components\\corridor_point_floor\\e_corridor_gate_floor.png
+map_kd gate_floor.png
 
-newmtl palette.021
+newmtl gate_floor.001
 Ns 0.000000
 Ka 1.000000 1.000000 1.000000
 Kd 1.000000 1.000000 1.000000
@@ -87,4 +87,15 @@ Ke 0.000000 0.000000 0.000000
 Ni 1.450000
 d 1.000000
 illum 1
-map_Kd C:\\Users\\wojtek\\Desktop\\PGiAnUP_2019_Dzienni_10\\Rotten Zone\\models\\corridor_point\\components\\corridor_point_wall\\corridor_point_wall.png
+map_kd gate_floor.png
+
+newmtl gate_floor.002
+Ns 0.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_kd gate_floor.png
