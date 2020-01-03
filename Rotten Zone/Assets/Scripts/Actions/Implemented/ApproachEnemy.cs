@@ -1,8 +1,8 @@
-﻿public abstract class Approach : Action
+﻿public abstract class ApproachEnemy : Action
 {
     Rat enemy;
 
-    public Approach(Rat rat, Rat enemy) : base(rat)
+    public ApproachEnemy(Rat rat, Rat enemy) : base(rat)
     {
         this.enemy = enemy;
         OnStart();
@@ -12,6 +12,8 @@
     {
         rat.agent.isStopped = false;
         rat.agent.SetDestination(enemy.transform.position);
+        animationsController.ClearQueue();
+        animationsController.ChangeAnimationTo("walking");
     }
 
     public override void OnEnd()

@@ -42,7 +42,7 @@
     {
         if (rat.capturePoint != null && (rat.capturePoint.owner != rat.team))
         {
-            ChangeActionTo(new Capture(rat));
+            ChangeActionTo(new ApproachCapturePoint(rat));
         }
     }
 

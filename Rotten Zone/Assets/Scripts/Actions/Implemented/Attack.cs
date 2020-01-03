@@ -22,6 +22,7 @@ public class Attack : Action
     {
         rat.agent.velocity = Vector3.zero;
         rat.agent.isStopped = true;
+        animationsController.ClearQueue();
         animationsController.AddAnimationToQueue("standing");
         animationsController.AddAnimationToQueue("wield_weapon");
     }
