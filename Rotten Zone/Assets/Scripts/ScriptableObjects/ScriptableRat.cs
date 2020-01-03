@@ -14,7 +14,7 @@ public class ScriptableRat : ScriptableObject
     public int speed;
     public int capPoints;
     public int cost;
-    public int range;
+    public float range;
     public int viewDistance;
 
     public AudioClip attackClip;

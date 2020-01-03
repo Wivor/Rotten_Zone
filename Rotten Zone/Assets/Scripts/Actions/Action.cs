@@ -5,16 +5,24 @@ public abstract class Action
 {
     protected Rat rat;
     protected RatController ratController;
+    protected AnimationsController animationsController;
 
     public Action(Rat rat)
     {
         this.rat = rat;
         ratController = rat.GetComponent<RatController>();
+        animationsController = rat.GetComponent<AnimationsController>();
     }
 
     public abstract void OnStart();
     public abstract void OnEnd();
     public abstract void Update();
+
+    protected void ChangeActionTo(Action action)
+    {
+        OnEnd();
+        ratController.SetActionTo(action);
+    }
 
     protected void SearchForAviableEnemy()
     {
@@ -32,7 +40,7 @@ public abstract class Action
     {
         if (rat.fieldOfView.GetEnemyRatsInRange().Count > 0)
         {
-            ratController.SetActionTo(new Shoot(rat, rat.fieldOfView.GetEnemyRatsInRange().OrderByDescending(r => Vector3.Distance(rat.transform.position, r.transform.position)).FirstOrDefault()));
+            ChangeActionTo(new Shoot(rat, rat.fieldOfView.GetEnemyRatsInRange().OrderByDescending(r => Vector3.Distance(rat.transform.position, r.transform.position)).FirstOrDefault()));
         }
     }
 
@@ -50,8 +58,8 @@ public abstract class Action
             {
                 if (!ratControllerOfEnemy.IsFighting())
                 {
-                    ratController.SetActionTo(new ApproachMeele(rat, enemy));
-                    ratControllerOfEnemy.SetActionTo(new ApproachMeele(enemy, rat));
+                    ChangeActionTo(new ApproachMeele(rat, enemy));
+                    ratControllerOfEnemy.currentAction.ChangeActionTo(new ApproachMeele(enemy, rat));
                 }
             }
         }

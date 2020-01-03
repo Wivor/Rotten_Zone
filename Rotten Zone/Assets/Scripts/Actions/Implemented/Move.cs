@@ -17,9 +17,16 @@
 
     public override void Update()
     {
-        ChangeWaypointWhenCloseToCurrent();
-        SearchForAviableEnemy();
-        CheckForCapturePoint();
+        if(animationsController.CurrentAnimationName() == "walking")
+        {
+            ChangeWaypointWhenCloseToCurrent();
+            SearchForAviableEnemy();
+            CheckForCapturePoint();
+        }
+        else
+        {
+            CheckIfAnimationQueueIsEmpty();
+        }
     }
 
     private void ChangeWaypointWhenCloseToCurrent()
@@ -35,7 +42,16 @@
     {
         if (rat.capturePoint != null && (rat.capturePoint.owner != rat.team))
         {
-            ratController.SetActionTo(new Capture(rat));
+            ChangeActionTo(new ApproachCapturePoint(rat));
+        }
+    }
+
+    private void CheckIfAnimationQueueIsEmpty()
+    {
+        if (animationsController.IsQueueEmpty())
+        {
+            rat.agent.isStopped = false;
+            animationsController.ChangeAnimationTo("walking");
         }
     }
 }

@@ -35,7 +35,6 @@ public class RatController : MonoBehaviour
 
     public void SetActionTo(Action action)
     {
-        currentAction.OnEnd();
         currentAction = action;
     }
 
