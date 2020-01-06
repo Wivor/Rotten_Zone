@@ -3,14 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayButton : MonoBehaviour
-{
-    // Start is called before the first frame update
-    public void handlePlayButton(){
-        //add scene when its ready
-        //SceneManager.LoadScene("sceneID")
-
-        //load next level in queue
-       //SceneManager.LoadScene(SceneManager.getActiveScene().buildIndex +1)
-    }
-}
+ public class PlayButton : MonoBehaviour
+ {
+      public void handlePlayButton()
+      {
+          SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+      }
+ }

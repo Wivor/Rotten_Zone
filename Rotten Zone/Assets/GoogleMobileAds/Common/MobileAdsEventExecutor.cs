@@ -76,10 +76,10 @@ namespace GoogleMobileAds.Common
                 adEventsQueueEmpty = true;
             }
 
-            foreach (Action stagedEvent in stagedAdEventsQueue)
-            {
-                stagedEvent.Invoke();
-            }
+            // foreach (Action stagedEvent in stagedAdEventsQueue)
+            // {
+            //     stagedEvent.Invoke();
+            // }
         }
 
         public void OnDisable()
