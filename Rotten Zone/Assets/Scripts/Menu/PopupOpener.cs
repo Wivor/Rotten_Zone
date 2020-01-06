@@ -5,11 +5,16 @@ using UnityEngine;
 public class PopupOpener : MonoBehaviour
 {
     public GameObject popup;
+    public GameObject popupToClose;
 
     public void openPopup(){
         if(popup != null)
         {
             popup.SetActive(true);
+            if(popupToClose != null){
+                popupToClose.SetActive(false);
+            }
+            
         }
     }
 
