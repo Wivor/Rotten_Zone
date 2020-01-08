@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class NewBehaviourScript : ScriptableObject
+public class Projectile : ScriptableObject
 {
     public int velocity;
-    public int damage;
+    public float damageMultiplier; //in future
 
     public AudioClip shotClip;
 
-    public abstract void onHit();
+    public void onHit(Rat target, int damage)
+    {
+        target.DealDamage(damage + (int)Random.Range(-damage * 0.2f, damage * 0.2f));
+    }
 }
