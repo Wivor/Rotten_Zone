@@ -183,7 +183,7 @@ public class GridGenerator : MonoBehaviour
         corners[columnLen / 2, 0, 1] = true;
         corners[columnLen / 2 + 2, 0, 2] = true;
 
-        rotations[columnLen / 2, 0] = 1;
+        rotations[columnLen / 2, 0] = -1;
         //mapProto[columnLen / 2, columnLen] = 7; //cap point
 
         lastPoint = Tuple.Create(columnLen / 2 - 2, 0);
@@ -206,7 +206,7 @@ public class GridGenerator : MonoBehaviour
                 rotations[columnLen - i - 1, rowLen - j] = /*rotations[i, j] % 2 == 0 ?*/ rotations[i, j];// : -rotations[i,j];
             }
         }
-        rotations[columnLen / 2, rowLen] = -1;
+        rotations[columnLen / 2, rowLen] = 1;
         cornersDictionary[1].Add((columnLen / 2, columnLen));
         cornersDictionary[2].Add((columnLen / 2, columnLen));
         cornersDictionary[3].Add((columnLen / 2, columnLen));
