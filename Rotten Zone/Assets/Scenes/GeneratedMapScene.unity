@@ -465,9 +465,9 @@ MonoBehaviour:
   z_space: 6.4
   background: {fileID: 5750373648684388991, guid: f663d33edfc832746938a35875bf509a,
     type: 3}
-  baseObject: {fileID: 1915360751638894894, guid: 35bc8480131fb6847931bf1db348f5a7,
+  baseObject: {fileID: -927199367670048503, guid: 3745169c6d92b8a4a97e054a6206bf9b,
     type: 3}
-  capPoint: {fileID: 8244502482457660585, guid: e5032154de47a594d846ef06582d1565,
+  capPoint: {fileID: -927199367670048503, guid: bba5d58fac3f57349b8835347f76d79c,
     type: 3}
   corridorCorner: {fileID: 6125564715236147308, guid: 6df7b63fb14f50d41a47fd76bb42081f,
     type: 3}
