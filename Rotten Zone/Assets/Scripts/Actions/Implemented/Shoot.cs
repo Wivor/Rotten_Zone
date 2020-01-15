@@ -2,10 +2,10 @@
 
 public class Shoot : Action
 {
-    Rat enemy;
+    AttackableObject enemy;
     Timer timer;
 
-    public Shoot(Rat rat, Rat enemy) : base(rat)
+    public Shoot(Rat rat, AttackableObject enemy) : base(rat)
     {
         this.enemy = enemy;
         OnStart();
@@ -29,7 +29,7 @@ public class Shoot : Action
         {
             ratController.SetActionTo(new Move(rat));
         }
-        else if (Vector3.Distance(rat.transform.position, enemy.transform.position) > rat.Statistics.range)
+        else if (Vector3.Distance(rat.transform.position, enemy.transform.position) > rat.Statistics.range + 1)
         {
             ratController.SetActionTo(new Move(rat));
         }

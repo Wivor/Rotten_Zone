@@ -4,8 +4,8 @@ using UnityEngine.AI;
 
 public class GameManager : MonoBehaviour
 {
-    public Base baseA;
-    public Base baseB;
+    public int baseAhealth = 500;
+    public int baseBhealth = 500;
 
     public bool isPaused = false;
 
