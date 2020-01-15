@@ -47,6 +47,15 @@ public class RatController : MonoBehaviour
         return false;
     }
 
+    public bool IsFightingGate()
+    {
+        if (currentAction is AttackBase)
+        {
+            return true;
+        }
+        return false;
+    }
+
     public Vector3 GetDestinationOfNextWaypoint()
     {
         if (path[stepOnPath].GetComponent<Corner>() != null)

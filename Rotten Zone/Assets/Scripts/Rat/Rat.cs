@@ -2,15 +2,15 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Rat : MonoBehaviour
+public class Rat : AttackableObject
 {
-    public Team team;
     public NavMeshAgent agent;
     public int pathPosition;
     public Vector3 capturePosition;
     public FieldOfView fieldOfView;
     [SerializeField]
     public CapturePoint capturePoint;
+    public Gate gate;
 
     UnityArmatureComponent armatureComponent;
 
@@ -47,9 +47,9 @@ public class Rat : MonoBehaviour
         GetComponent<RatController>().Initialize(this);
     }
 
-    public void DealDamage(int dmg)
+    public override void DealDamage(int damage)
     {
-        Statistics.health -= dmg;
+        Statistics.health -= damage;
         if (Statistics.health <= 0)
         {
             if (GetComponent< RatController>().currentAction is Capture)

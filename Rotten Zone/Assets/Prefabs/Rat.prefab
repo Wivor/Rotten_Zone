@@ -142,6 +142,7 @@ MonoBehaviour:
   capturePosition: {x: 0, y: 0, z: 0}
   fieldOfView: {fileID: 0}
   capturePoint: {fileID: 0}
+  gate: {fileID: 0}
   Statistics:
     ranged: 0
     health: 0
@@ -203,9 +204,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rat: {fileID: 0}
   radius: 0
-  layerMask:
+  unitLayerMask:
     serializedVersion: 2
     m_Bits: 8192
+  gateLayerMask:
+    serializedVersion: 2
+    m_Bits: 16384
 --- !u!65 &-9142775947380684222
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -247,3 +251,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7111dc27f967a0a46b61011a862f32ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  armatureComponent: {fileID: 0}

@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 
-public class Attack : Action
+public class AttackBase : Action
 {
     AttackableObject enemy;
     Timer timer;
 
-    public Attack(Rat rat, AttackableObject enemy) : base(rat)
+    public AttackBase(Rat rat, AttackableObject enemy) : base(rat)
     {
         this.enemy = enemy;
         OnStart();
@@ -46,7 +46,7 @@ public class Attack : Action
                 timer = new Timer(Time.deltaTime, rat.Statistics.attackSpeed, Action);
                 animationsController.ChangeAnimationTo("hit1");
             }
-        }        
+        }
     }
 
     private void Action()

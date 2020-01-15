@@ -46,11 +46,18 @@ public abstract class Action
 
     private void MeeleBehaviour()
     {
+        foreach (Gate gate in rat.fieldOfView.GetEnemyGateInRange())
+        {
+            if (gate.team != rat.team)
+            {
+                ChangeActionTo(new ApproachGate(rat, gate));
+            }
+        }
         foreach (Rat enemy in rat.fieldOfView.GetEnemyRatsInRange())
         {
             RatController ratControllerOfEnemy = enemy.GetComponent<RatController>();
 
-            if (enemy.IsRanged())
+            if (enemy.IsRanged() || ratControllerOfEnemy.IsFightingGate())
             {
                 ratController.SetActionTo(new ApproachRanged(rat, enemy));
             }
