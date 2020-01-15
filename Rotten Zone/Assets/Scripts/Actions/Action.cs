@@ -38,7 +38,11 @@ public abstract class Action
 
     private void RangedBehaviour()
     {
-        if (rat.fieldOfView.GetEnemyRatsInRange().Count > 0)
+        if (rat.fieldOfView.GetEnemyGateInRange().Count > 0)
+        {
+            ChangeActionTo(new Shoot(rat, rat.fieldOfView.GetEnemyGateInRange().OrderByDescending(r => Vector3.Distance(rat.transform.position, r.transform.position)).FirstOrDefault()));
+        }
+        else if (rat.fieldOfView.GetEnemyRatsInRange().Count > 0)
         {
             ChangeActionTo(new Shoot(rat, rat.fieldOfView.GetEnemyRatsInRange().OrderByDescending(r => Vector3.Distance(rat.transform.position, r.transform.position)).FirstOrDefault()));
         }
