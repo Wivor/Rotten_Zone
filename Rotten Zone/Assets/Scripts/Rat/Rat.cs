@@ -41,6 +41,11 @@ public class Rat : AttackableObject
 
         fieldOfView = GetComponent<FieldOfView>();
         fieldOfView.Initialize(scriptableRat.viewDistance, this);
+        
+        if (team == Team.B)
+        {
+            armatureComponent.armature.flipX = true;
+        }
 
         agent.speed = Statistics.speed;
         GetComponent<AnimationsController>().Initialize(armatureComponent);
