@@ -33,21 +33,21 @@ public class UnitSpawner : MonoBehaviour
         {
             case 9:
                 GameObject rat1 = Instantiate(ratPrefab);
-                rat1.GetComponent<Rat>().Initialize(rats[currentRat]);
                 rat1.transform.position = GetComponent<GameManager>().pathThree[0].transform.position;
                 rat1.GetComponent<NavMeshAgent>().agentTypeID = int.Parse(NavMesh.GetSettingsNameFromID(0));
+                rat1.GetComponent<Rat>().Initialize(rats[currentRat]);
                 break;
             case 10:
                 GameObject rat2 = Instantiate(ratPrefab);
-                rat2.GetComponent<Rat>().Initialize(rats[currentRat]);
                 rat2.transform.position = GetComponent<GameManager>().pathTwo[0].transform.position;
                 rat2.GetComponent<NavMeshAgent>().agentTypeID = NavMesh.GetSettingsByIndex(1).agentTypeID;
+                rat2.GetComponent<Rat>().Initialize(rats[currentRat]);
                 break;
             case 11:
                 GameObject rat3 = Instantiate(ratPrefab);
-                rat3.GetComponent<Rat>().Initialize(rats[currentRat]);
                 rat3.transform.position = GetComponent<GameManager>().pathOne[0].transform.position;
                 rat3.GetComponent<NavMeshAgent>().agentTypeID = NavMesh.GetSettingsByIndex(2).agentTypeID;
+                rat3.GetComponent<Rat>().Initialize(rats[currentRat]);
                 break;
         }
     }
