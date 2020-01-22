@@ -38,7 +38,11 @@ public abstract class Action
 
     private void RangedBehaviour()
     {
-        if (rat.fieldOfView.GetEnemyRatsInRange().Count > 0)
+        if (rat.fieldOfView.GetEnemyGateInRange().Count > 0)
+        {
+            ChangeActionTo(new Shoot(rat, rat.fieldOfView.GetEnemyGateInRange().OrderByDescending(r => Vector3.Distance(rat.transform.position, r.transform.position)).FirstOrDefault()));
+        }
+        else if (rat.fieldOfView.GetEnemyRatsInRange().Count > 0)
         {
             ChangeActionTo(new Shoot(rat, rat.fieldOfView.GetEnemyRatsInRange().OrderByDescending(r => Vector3.Distance(rat.transform.position, r.transform.position)).FirstOrDefault()));
         }
@@ -46,11 +50,18 @@ public abstract class Action
 
     private void MeeleBehaviour()
     {
+        foreach (Gate gate in rat.fieldOfView.GetEnemyGateInRange())
+        {
+            if (gate.team != rat.team)
+            {
+                ChangeActionTo(new ApproachGate(rat, gate));
+            }
+        }
         foreach (Rat enemy in rat.fieldOfView.GetEnemyRatsInRange())
         {
             RatController ratControllerOfEnemy = enemy.GetComponent<RatController>();
 
-            if (enemy.IsRanged())
+            if (enemy.IsRanged() || ratControllerOfEnemy.IsFightingGate())
             {
                 ratController.SetActionTo(new ApproachRanged(rat, enemy));
             }

@@ -9,9 +9,8 @@ public class FieldOfView : MonoBehaviour
     [SerializeField]
     private int radius;
 
-    public LayerMask layerMask;
-
-   // public List<Rat> enemyRats = new List<Rat>();
+    public LayerMask unitLayerMask;
+    public LayerMask gateLayerMask;
 
     public void Initialize(int radius, Rat rat)
     {
@@ -21,15 +20,23 @@ public class FieldOfView : MonoBehaviour
 
     public List<Rat> GetEnemyRatsInRange()
     {
-        return Physics.OverlapSphere(transform.position, radius, layerMask)
+        return Physics.OverlapSphere(transform.position, radius, unitLayerMask)
             .Select(x => x.GetComponent<Rat>())
+            .Where(x => x.team != rat.team)
+            .ToList();
+    }
+
+    public List<Gate> GetEnemyGateInRange()
+    {
+        return Physics.OverlapSphere(transform.position, radius, gateLayerMask)
+            .Select(x => x.GetComponent<Gate>())
             .Where(x => x.team != rat.team)
             .ToList();
     }
 
     public void DrawLinesForRats()
     {
-        foreach (Collider hit in Physics.OverlapSphere(transform.position, radius, layerMask))
+        foreach (Collider hit in Physics.OverlapSphere(transform.position, radius, unitLayerMask))
         {
             if (hit.GetComponent<Rat>().team != rat.team)
             {
@@ -44,7 +51,7 @@ public class FieldOfView : MonoBehaviour
 
     public void DrawLinesForEverything()
     {
-        foreach (Collider hit in Physics.OverlapSphere(transform.position, radius, layerMask))
+        foreach (Collider hit in Physics.OverlapSphere(transform.position, radius, unitLayerMask))
         {
             Debug.DrawLine(transform.position, hit.gameObject.transform.position);
         }

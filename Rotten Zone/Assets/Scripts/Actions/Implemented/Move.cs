@@ -21,7 +21,7 @@
         {
             ChangeWaypointWhenCloseToCurrent();
             SearchForAviableEnemy();
-            CheckForCapturePoint();
+            CheckForCapturePointOrGate();
         }
         else
         {
@@ -38,7 +38,7 @@
         }
     }
 
-    private void CheckForCapturePoint()
+    private void CheckForCapturePointOrGate()
     {
         if (rat.capturePoint != null && (rat.capturePoint.owner != rat.team))
         {
