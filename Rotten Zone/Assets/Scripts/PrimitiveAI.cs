@@ -19,7 +19,7 @@ public class PrimitiveAI : MonoBehaviour
     private int Decide()
     {
         System.Random rand = new System.Random();
-        return rand.Next(9, 11);
+        return rand.Next(9, 12);
     }
 
     private void SpawnUnit()
