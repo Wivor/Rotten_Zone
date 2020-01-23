@@ -56,6 +56,8 @@ public class UnitSpawner : MonoBehaviour
                 else
                     rat2.transform.position = GetComponent<GameManager>().pathTwo[0].transform.position;
                 rat2.GetComponent<NavMeshAgent>().agentTypeID = NavMesh.GetSettingsByIndex(1).agentTypeID;
+                rat2.GetComponent<NavMeshAgent>().enabled = false;
+                rat2.GetComponent<NavMeshAgent>().enabled = true;
                 break;
             case 11:
                 GameObject rat3 = Instantiate(ratPrefab);
