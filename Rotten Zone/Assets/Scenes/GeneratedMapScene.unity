@@ -502,6 +502,7 @@ GameObject:
   - component: {fileID: 1784680538}
   - component: {fileID: 1784680537}
   - component: {fileID: 1784680539}
+  - component: {fileID: 1784680540}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -561,3 +562,15 @@ MonoBehaviour:
   rat2: {fileID: 11400000, guid: e07bc9028cb02bd45ba9503218c1cfc1, type: 2}
   rat3: {fileID: 11400000, guid: 42a392a5fcc0a044ba4ee0d80fcaa6b0, type: 2}
   currentRat: 1
+--- !u!114 &1784680540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1784680536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50c93b892d4e94040b623cde12418611, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
