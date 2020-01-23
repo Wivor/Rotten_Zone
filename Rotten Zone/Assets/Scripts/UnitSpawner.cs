@@ -21,12 +21,14 @@ public class UnitSpawner : MonoBehaviour
         rats[3] = rat3;
     }
 
-    public void SpawnUnit(int laneID)
+    public void SpawnUnit(int laneID, bool isEnemy)
     {
-        int score = GetComponent<GameManager>().playerAScore;
+        int score = isEnemy==true ? GetComponent<GameManager>().playerBScore : GetComponent<GameManager>().playerAScore;
 
         if (rats[currentRat].cost > score)
             return;
+        else if(isEnemy)
+            GetComponent<GameManager>().playerBScore -= rats[currentRat].cost;
         else
             GetComponent<GameManager>().playerAScore -= rats[currentRat].cost;
         switch (laneID)
@@ -34,19 +36,37 @@ public class UnitSpawner : MonoBehaviour
             case 9:
                 GameObject rat1 = Instantiate(ratPrefab);
                 rat1.GetComponent<Rat>().Initialize(rats[currentRat]);
-                rat1.transform.position = GetComponent<GameManager>().pathThree[0].transform.position;
+                if (isEnemy)
+                {
+                    rat1.GetComponent<Rat>().team = Team.B;
+                    rat1.transform.position = GetComponent<GameManager>().pathThree[GetComponent<GameManager>().pathThree.Count-1].transform.position;
+                }
+                else
+                    rat1.transform.position = GetComponent<GameManager>().pathThree[0].transform.position;
                 rat1.GetComponent<NavMeshAgent>().agentTypeID = int.Parse(NavMesh.GetSettingsNameFromID(0));
                 break;
             case 10:
                 GameObject rat2 = Instantiate(ratPrefab);
                 rat2.GetComponent<Rat>().Initialize(rats[currentRat]);
-                rat2.transform.position = GetComponent<GameManager>().pathTwo[0].transform.position;
+                if (isEnemy)
+                {
+                    rat2.GetComponent<Rat>().team = Team.B;
+                    rat2.transform.position = GetComponent<GameManager>().pathTwo[GetComponent<GameManager>().pathTwo.Count-1].transform.position;
+                }
+                else
+                    rat2.transform.position = GetComponent<GameManager>().pathTwo[0].transform.position;
                 rat2.GetComponent<NavMeshAgent>().agentTypeID = NavMesh.GetSettingsByIndex(1).agentTypeID;
                 break;
             case 11:
                 GameObject rat3 = Instantiate(ratPrefab);
                 rat3.GetComponent<Rat>().Initialize(rats[currentRat]);
-                rat3.transform.position = GetComponent<GameManager>().pathOne[0].transform.position;
+                if (isEnemy)
+                {
+                    rat3.GetComponent<Rat>().team = Team.B;
+                    rat3.transform.position = GetComponent<GameManager>().pathOne[GetComponent<GameManager>().pathOne.Count-1].transform.position;
+                }
+                else
+                    rat3.transform.position = GetComponent<GameManager>().pathOne[0].transform.position;
                 rat3.GetComponent<NavMeshAgent>().agentTypeID = NavMesh.GetSettingsByIndex(2).agentTypeID;
                 break;
         }

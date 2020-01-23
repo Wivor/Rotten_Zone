@@ -20,7 +20,7 @@ public class CameraRayCast : MonoBehaviour
             Transform objectHit = hit.transform;
             if(Enumerable.Range(9, 11).Contains(objectHit.gameObject.layer)){
                 //Debug.Log("Spawn " + objectHit.gameObject.layer);
-                FindObjectOfType<UnitSpawner>().SpawnUnit(objectHit.gameObject.layer);
+                FindObjectOfType<UnitSpawner>().SpawnUnit(objectHit.gameObject.layer, false);
             }
         }
     }
