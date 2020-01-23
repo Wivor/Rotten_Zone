@@ -143,6 +143,14 @@ public class GridGenerator : MonoBehaviour
             }
             ind++;
         }
+        for (int i = 0; i <= 1; i++)
+        {
+            GameObject castle = Instantiate(baseObject);
+            castle.transform.parent = this.transform;
+            castle.transform.position = new Vector3(x_start + (x_space * (columnLen /2)), 0, z_start + (-z_space * (rowLen *i)));
+            castle.transform.Rotate(new Vector3(0, 90f * -1 + 180*i, 0));
+            castle.layer = 12;
+        }
     }
 
     private void generateArray()
@@ -167,7 +175,7 @@ public class GridGenerator : MonoBehaviour
                 mapProto[i, j] = background;
                 rotations[i, j] = 0f;
             }
-        mapProto[columnLen / 2, 0] = baseObject;
+        mapProto[columnLen / 2, 0] = transparent;
         mapProto[columnLen / 2 + 1, 0] = transparent;
         mapProto[columnLen / 2 + 2, 0] = transparent;
         mapProto[columnLen / 2 - 1, 0] = transparent;
@@ -207,9 +215,9 @@ public class GridGenerator : MonoBehaviour
             }
         }
         rotations[columnLen / 2, rowLen] = 1;
-        cornersDictionary[1].Add((columnLen / 2, columnLen));
-        cornersDictionary[2].Add((columnLen / 2, columnLen));
-        cornersDictionary[3].Add((columnLen / 2, columnLen));
+        //cornersDictionary[1].Add((columnLen / 2, columnLen));
+        //cornersDictionary[2].Add((columnLen / 2, columnLen));
+        //cornersDictionary[3].Add((columnLen / 2, columnLen));
     }
 
     private void GeneratePoints(int leftBorder, int rightBorder, int bottomBorder, int upperBorder, int amount, int laneID)
