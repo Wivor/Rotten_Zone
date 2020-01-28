@@ -22,14 +22,15 @@ public class Rat : AttackableObject
     public ScriptableRat scriptableRat;
     private void Start()
     {
-        Initialize(scriptableRat);
+        Initialize(scriptableRat, team, 0);
     }
 
     //-------------- FOR ANIMATION TESTING
 
-    public void Initialize(ScriptableRat scriptableRat)
+    public void Initialize(ScriptableRat scriptableRat, Team team, int path)
     {
         Statistics = new Statistics(scriptableRat);
+        this.team = team;
 
         UnityFactory.factory.LoadData(scriptableRat.dragonBonesData);
         armatureComponent = UnityFactory.factory.BuildArmatureComponent("melee_unit", gameObject: transform.GetChild(0).gameObject);
@@ -49,7 +50,7 @@ public class Rat : AttackableObject
 
         agent.speed = Statistics.speed;
         GetComponent<AnimationsController>().Initialize(armatureComponent);
-        GetComponent<RatController>().Initialize(this);
+        GetComponent<RatController>().Initialize(this, path);
     }
 
     public override void DealDamage(int damage)

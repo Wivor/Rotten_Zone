@@ -12,10 +12,10 @@ public class RatController : MonoBehaviour
     
     private Vector3 destination;
 
-    public void Initialize(Rat rat)
+    public void Initialize(Rat rat, int pathID)
     {
         this.rat = rat;
-        path = new List<Transform>(FindObjectOfType<GameManager>().paths[int.Parse(NavMesh.GetSettingsNameFromID(rat.agent.agentTypeID))]);
+        path = new List<Transform>(FindObjectOfType<GameManager>().paths[pathID]);
 
         if (rat.team == Team.B)
         {
