@@ -527,6 +527,8 @@ MonoBehaviour:
   isPaused: 0
   playerAScore: 100
   playerBScore: 100
+  playerAForces: 000000000000000000000000
+  playerBForces: 000000000000000000000000
   pathOne: []
   pathTwo: []
   pathThree: []

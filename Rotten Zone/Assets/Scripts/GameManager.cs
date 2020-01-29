@@ -12,6 +12,9 @@ public class GameManager : MonoBehaviour
     public int playerAScore = 100;
     public int playerBScore = 100;
 
+    public int[] playerAForces = new int[3];
+    public int[] playerBForces = new int[3];
+
     public List<List<Transform>> paths = new List<List<Transform>>();
 
     public List<Transform> pathOne = new List<Transform>();

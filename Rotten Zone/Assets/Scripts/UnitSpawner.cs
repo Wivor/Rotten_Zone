@@ -26,6 +26,10 @@ public class UnitSpawner : MonoBehaviour
     public void SpawnUnit(int laneID, bool isEnemy)
     {
         int score = isEnemy==true ? GetComponent<GameManager>().playerBScore : GetComponent<GameManager>().playerAScore;
+        if (!isEnemy)
+            GetComponent<GameManager>().playerAForces[laneID - 9] += rats[currentRat].attack;
+        else
+            GetComponent<GameManager>().playerBForces[laneID - 9] += rats[currentRat].attack;
 
         if (rats[currentRat].cost > score)
             return;

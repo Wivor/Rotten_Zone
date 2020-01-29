@@ -6,6 +6,7 @@ public class Rat : AttackableObject
 {
     public NavMeshAgent agent;
     public int pathPosition;
+    public int path;
     public Vector3 capturePosition;
     public FieldOfView fieldOfView;
     [SerializeField]
@@ -31,6 +32,7 @@ public class Rat : AttackableObject
     {
         Statistics = new Statistics(scriptableRat);
         this.team = team;
+        this.path = path;
 
         UnityFactory.factory.LoadData(scriptableRat.dragonBonesData);
         armatureComponent = UnityFactory.factory.BuildArmatureComponent("melee_unit", gameObject: transform.GetChild(0).gameObject);
@@ -62,6 +64,11 @@ public class Rat : AttackableObject
             {
                 capturePoint.captureChange -= CapPointChange();
             }
+            if (team == Team.A)
+                GetComponent<GameManager>().playerAForces[path+9] -= this.Statistics.attack;
+            else
+                GetComponent<GameManager>().playerBForces[path + 9] -= this.Statistics.attack;
+
             Destroy(gameObject);
         }
     }
