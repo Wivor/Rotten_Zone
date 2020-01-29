@@ -18,13 +18,13 @@ public class Rat : AttackableObject
     public Statistics Statistics;
 
     //-------------- FOR ANIMATION TESTING
-
+    /*
     public ScriptableRat scriptableRat;
     private void Start()
     {
         Initialize(scriptableRat, team, 0);
     }
-
+    */
     //-------------- FOR ANIMATION TESTING
 
     public void Initialize(ScriptableRat scriptableRat, Team team, int path)
