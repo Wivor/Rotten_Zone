@@ -5,7 +5,7 @@
     private void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
-        team = Team.A;
+        //team = Team.A;
     }
 
     public override void DealDamage(int damage)

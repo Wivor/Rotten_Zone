@@ -150,6 +150,18 @@ public class GridGenerator : MonoBehaviour
             castle.transform.position = new Vector3(x_start + (x_space * (columnLen /2)), 0, z_start + (-z_space * (rowLen *i)));
             castle.transform.Rotate(new Vector3(0, 90f * -1 + 180*i, 0));
             castle.layer = 12;
+            if (i == 0)
+            {
+                castle.transform.GetChild(0).GetComponent<Gate>().team = Team.A;
+                castle.transform.GetChild(1).GetComponent<Gate>().team = Team.A;
+                castle.transform.GetChild(2).GetComponent<Gate>().team = Team.A;
+            }
+            else
+            {
+                castle.transform.GetChild(0).GetComponent<Gate>().team = Team.B;
+                castle.transform.GetChild(1).GetComponent<Gate>().team = Team.B;
+                castle.transform.GetChild(2).GetComponent<Gate>().team = Team.B;
+            }
         }
     }
 

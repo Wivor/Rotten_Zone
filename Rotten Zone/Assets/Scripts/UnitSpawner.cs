@@ -11,6 +11,8 @@ public class UnitSpawner : MonoBehaviour
     public ScriptableRat rat3;
     public int currentRat = 1;
     public Dictionary<int, ScriptableRat> rats;
+
+    private Team team;
     
     // Start is called before the first frame update
     void Start()
@@ -21,33 +23,63 @@ public class UnitSpawner : MonoBehaviour
         rats[3] = rat3;
     }
 
-    public void SpawnUnit(int laneID)
+    public void SpawnUnit(int laneID, bool isEnemy)
     {
-        int score = GetComponent<GameManager>().playerAScore;
+        int score = isEnemy==true ? GetComponent<GameManager>().playerBScore : GetComponent<GameManager>().playerAScore;
 
         if (rats[currentRat].cost > score)
             return;
+        else if(isEnemy)
+        {
+            GetComponent<GameManager>().playerBScore -= rats[currentRat].cost;
+            team = Team.B;
+        }
         else
+        {
             GetComponent<GameManager>().playerAScore -= rats[currentRat].cost;
+            team = Team.A;
+        }
+
         switch (laneID)
         {
             case 9:
                 GameObject rat1 = Instantiate(ratPrefab);
-                rat1.GetComponent<Rat>().Initialize(rats[currentRat]);
-                rat1.transform.position = GetComponent<GameManager>().pathThree[0].transform.position;
-                rat1.GetComponent<NavMeshAgent>().agentTypeID = int.Parse(NavMesh.GetSettingsNameFromID(0));
+                rat1.GetComponent<Rat>().Initialize(rats[currentRat], team, 2);
+                if (isEnemy)
+                {
+                    rat1.transform.position = GetComponent<GameManager>().pathThree[GetComponent<GameManager>().pathThree.Count-1].transform.position;
+                }
+                else
+                    rat1.transform.position = GetComponent<GameManager>().pathThree[0].transform.position;
+                rat1.GetComponent<NavMeshAgent>().agentTypeID = NavMesh.GetSettingsByIndex(0).agentTypeID;
+                rat1.GetComponent<NavMeshAgent>().enabled = false;
+                rat1.GetComponent<NavMeshAgent>().enabled = true;
                 break;
             case 10:
                 GameObject rat2 = Instantiate(ratPrefab);
-                rat2.GetComponent<Rat>().Initialize(rats[currentRat]);
-                rat2.transform.position = GetComponent<GameManager>().pathTwo[0].transform.position + new Vector3(0,0.4f,0);
+                rat2.GetComponent<Rat>().Initialize(rats[currentRat], team, 1);
+                if (isEnemy)
+                {
+                    rat2.transform.position = GetComponent<GameManager>().pathTwo[GetComponent<GameManager>().pathTwo.Count-1].transform.position;
+                }
+                else
+                    rat2.transform.position = GetComponent<GameManager>().pathTwo[0].transform.position;
                 rat2.GetComponent<NavMeshAgent>().agentTypeID = NavMesh.GetSettingsByIndex(1).agentTypeID;
+                rat2.GetComponent<NavMeshAgent>().enabled = false;
+                rat2.GetComponent<NavMeshAgent>().enabled = true;
                 break;
             case 11:
                 GameObject rat3 = Instantiate(ratPrefab);
-                rat3.GetComponent<Rat>().Initialize(rats[currentRat]);
-                rat3.transform.position = GetComponent<GameManager>().pathOne[0].transform.position;
+                rat3.GetComponent<Rat>().Initialize(rats[currentRat], team, 0);
+                if (isEnemy)
+                {
+                    rat3.transform.position = GetComponent<GameManager>().pathOne[GetComponent<GameManager>().pathOne.Count-1].transform.position;
+                }
+                else
+                    rat3.transform.position = GetComponent<GameManager>().pathOne[0].transform.position;
                 rat3.GetComponent<NavMeshAgent>().agentTypeID = NavMesh.GetSettingsByIndex(2).agentTypeID;
+                rat3.GetComponent<NavMeshAgent>().enabled = false;
+                rat3.GetComponent<NavMeshAgent>().enabled = true;
                 break;
         }
     }

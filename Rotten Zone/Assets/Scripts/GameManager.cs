@@ -29,6 +29,8 @@ public class GameManager : MonoBehaviour
         paths.Add(pathTwo);
         paths.Add(pathThree);
         SetTimer();
+        var ai = GetComponent<PrimitiveAI>();
+        ai.enabled = true;
     }
 
     private void SetTimer()

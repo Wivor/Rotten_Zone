@@ -18,6 +18,8 @@ public class AnimationsController : MonoBehaviour
         if (AnimationIsFinished() && animationList.Count != 0)
         {
             animationList.Remove(animationList.First());
+            if (animationList.Count == 0)
+                return;
             ChangeAnimationTo(animationList.First(), 1);
         }
     }
