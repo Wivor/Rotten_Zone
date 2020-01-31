@@ -124,7 +124,7 @@ public class GridGenerator : MonoBehaviour
                 if (mapProto[element.Item1, element.Item2] == capPoint)
                 {
                     col.size = new Vector3(3 * x_space, 3, 3 * z_space);
-                    temp.AddComponent<CapturePoint>().distanceModifier = (float)Math.Round(2.0f * (float)((Math.Sqrt(Math.Pow(0 - columnLen / 2, 2) + Math.Pow(0 - columnLen, 2)) - Math.Sqrt(Math.Pow(element.Item1 - columnLen / 2, 2) + Math.Pow(element.Item2 - columnLen, 2))) / Math.Sqrt(Math.Pow(0 - columnLen / 2, 2) + Math.Pow(0 - columnLen, 2))) + 0.1f * (ind + 3), 2);//((Math.Pow(0 - columnLen / 2, 2) + Math.Pow(0 - columnLen, 2) - Math.Pow(element.Item1 - columnLen / 2, 2) + Math.Pow(element.Item2 - columnLen, 2)))));
+                    temp.GetComponent<CapturePoint>().distanceModifier = (float)Math.Round(2.0f * (float)((Math.Sqrt(Math.Pow(0 - columnLen / 2, 2) + Math.Pow(0 - columnLen, 2)) - Math.Sqrt(Math.Pow(element.Item1 - columnLen / 2, 2) + Math.Pow(element.Item2 - columnLen, 2))) / Math.Sqrt(Math.Pow(0 - columnLen / 2, 2) + Math.Pow(0 - columnLen, 2))) + 0.1f * (ind + 3), 2);//((Math.Pow(0 - columnLen / 2, 2) + Math.Pow(0 - columnLen, 2) - Math.Pow(element.Item1 - columnLen / 2, 2) + Math.Pow(element.Item2 - columnLen, 2)))));
                 }
                 else if (mapProto[element.Item1, element.Item2] == baseObject)
                 {
