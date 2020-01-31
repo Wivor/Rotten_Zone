@@ -5,6 +5,7 @@ public class CapturePoint : MonoBehaviour
 {
     public Material teamAMaterial;
     public Material teamBMaterial;
+    public GameObject flag;
 
     public Team owner;
     public float capturePoints = 50;
@@ -24,7 +25,7 @@ public class CapturePoint : MonoBehaviour
             FindObjectOfType<GameManager>().teamAPoints.Add(this);
             if (FindObjectOfType<GameManager>().teamBPoints.Contains(this))
                 FindObjectOfType<GameManager>().teamBPoints.Remove(this);
-            GetComponent<Renderer>().material = teamAMaterial;
+            flag.GetComponent<Renderer>().material = teamAMaterial;
         }
         if (capturePoints < 0)
         {
@@ -33,7 +34,7 @@ public class CapturePoint : MonoBehaviour
             FindObjectOfType<GameManager>().teamBPoints.Add(this);
             if (FindObjectOfType<GameManager>().teamAPoints.Contains(this))
                 FindObjectOfType<GameManager>().teamAPoints.Remove(this);
-            GetComponent<Renderer>().material = teamBMaterial;
+            flag.GetComponent<Renderer>().material = teamBMaterial;
         }
     }
 }

@@ -467,7 +467,7 @@ MonoBehaviour:
     type: 3}
   baseObject: {fileID: 1915360751638894894, guid: 35bc8480131fb6847931bf1db348f5a7,
     type: 3}
-  capPoint: {fileID: -927199367670048503, guid: bba5d58fac3f57349b8835347f76d79c,
+  capPoint: {fileID: 6246731515401270159, guid: 78ede78f299a5d240bfd28b2d5be7710,
     type: 3}
   corridorCorner: {fileID: 6125564715236147308, guid: 6df7b63fb14f50d41a47fd76bb42081f,
     type: 3}
