@@ -22,6 +22,7 @@ public class RatController : MonoBehaviour
             path.Reverse();
         }
 
+        transform.position = path[0].position;
         stepOnPath = 1;
 
         currentAction = new Move(rat);
