@@ -29,6 +29,29 @@ public class UnitSpawner : MonoBehaviour
         selectedLane = laneID;
     }
 
+    public void SpawnPlayerUnit()
+    {
+        if (rats[currentRat].cost > GetComponent<GameManager>().playerAScore)
+            return;
+        {
+            GetComponent<GameManager>().playerAScore -= rats[currentRat].cost;
+            team = Team.A;
+        }
+
+        switch (selectedLane)
+        {
+            case 9:
+                Spawn(0);
+                break;
+            case 10:
+                Spawn(1);
+                break;
+            case 11:
+                Spawn(2);
+                break;
+        }
+    }
+
     public void SpawnUnit(int laneID, bool isEnemy)
     {
         int score = isEnemy==true ? GetComponent<GameManager>().playerBScore : GetComponent<GameManager>().playerAScore;
