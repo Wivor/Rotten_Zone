@@ -25,9 +25,9 @@ public class GameManager : MonoBehaviour
 
     void Awake()
     {
-        paths.Add(pathOne);
-        paths.Add(pathTwo);
         paths.Add(pathThree);
+        paths.Add(pathTwo);
+        paths.Add(pathOne);
         SetTimer();
         var ai = GetComponent<PrimitiveAI>();
         ai.enabled = true;

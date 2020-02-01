@@ -21,6 +21,7 @@ public class CameraRayCast : MonoBehaviour
             if(Enumerable.Range(9, 11).Contains(objectHit.gameObject.layer)){
                 //Debug.Log("Spawn " + objectHit.gameObject.layer);
                 FindObjectOfType<UnitSpawner>().SpawnUnit(objectHit.gameObject.layer, false);
+                FindObjectOfType<UnitSpawner>().SelectLane(objectHit.gameObject.layer);
             }
         }
     }
