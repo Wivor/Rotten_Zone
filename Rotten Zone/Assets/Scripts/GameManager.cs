@@ -1,9 +1,12 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public GameObject textObject;
+
     public int baseAhealth = 500;
     public int baseBhealth = 500;
 
@@ -59,6 +62,10 @@ public class GameManager : MonoBehaviour
         }
         Debug.Log(playerAScore);
         Debug.Log(playerBScore);
+
+        if(textObject != null){
+            textObject.GetComponent<Text>().text = playerAScore+ "";
+        }
     }
 
     void OnApplicationQuit()
