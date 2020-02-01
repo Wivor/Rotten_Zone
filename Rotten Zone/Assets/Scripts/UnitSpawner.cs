@@ -65,7 +65,6 @@ public class UnitSpawner : MonoBehaviour
         GameObject rat = Instantiate(ratPrefab);
         rat.GetComponent<Rat>().Initialize(rats[currentRat], team, path);
 
-        rat.GetComponent<NavMeshAgent>().agentTypeID = NavMesh.GetSettingsByIndex(path).agentTypeID;
         rat.GetComponent<NavMeshAgent>().enabled = false;
         rat.GetComponent<NavMeshAgent>().enabled = true;
     }

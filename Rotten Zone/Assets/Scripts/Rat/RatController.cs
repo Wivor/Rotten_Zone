@@ -25,6 +25,7 @@ public class RatController : MonoBehaviour
         transform.position = path[0].position;
         stepOnPath = 1;
 
+        GetComponent<NavMeshAgent>().agentTypeID = NavMesh.GetSettingsByIndex(pathID).agentTypeID;
         currentAction = new Move(rat);
     }
 
