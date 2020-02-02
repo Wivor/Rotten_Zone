@@ -7,6 +7,12 @@ public class GameManager : MonoBehaviour
 {
     public GameObject textObject;
 
+    public GameObject hp;
+    public GameObject enemyhp;
+
+    public GameObject popupWin;
+    public GameObject popupLost;
+
     public int baseAhealth = 500;
     public int baseBhealth = 500;
 
@@ -73,6 +79,32 @@ public class GameManager : MonoBehaviour
     public void OnApplicationQuit()
     {
         timer.Stop();
+    }
+
+    public void PlayerWon()
+    {
+        if(popupWin != null)
+        {
+            popupWin.SetActive(true);
+        }
+    }
+
+    public void PlayerLost()
+    {
+       if(popupLost != null)
+        {
+            popupLost.SetActive(true);
+        }
+    }
+
+    public void showHP()
+    {
+       if(hp != null){
+             hp.GetComponent<Text>().text = baseAhealth+ "";
+        }
+        if(enemyhp != null){
+             enemyhp.GetComponent<Text>().text = baseBhealth+ "";
+        }
     }
 
 }

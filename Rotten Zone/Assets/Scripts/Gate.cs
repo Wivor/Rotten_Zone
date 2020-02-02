@@ -1,5 +1,12 @@
-﻿public class Gate : AttackableObject
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Gate : AttackableObject
 {
+    public GameObject popupWin;
+    public GameObject popupLost;
+
     GameManager gameManager;
     bool gameEnded = false;
 
@@ -14,13 +21,14 @@
         if (gameEnded)
             return;
 
+        gameManager.showHP();
         if (team == Team.A)
         {
             gameManager.baseAhealth -= damage;
             if (gameManager.baseAhealth <= 0)
             {
                 gameEnded = true;
-                PlayerWon();
+                gameManager.PlayerLost();
             }
         }
         else
@@ -29,18 +37,9 @@
             if (gameManager.baseBhealth <= 0)
             {
                 gameEnded = true;
-                PlayerLost();
+                gameManager.PlayerWon();
             }
         }
     }
 
-    private void PlayerWon()
-    {
-
-    }
-
-    private void PlayerLost()
-    {
-
-    }
 }
