@@ -24,5 +24,17 @@ public class PopupOpener : MonoBehaviour
             popup.SetActive(false);
         }
     }
+
+    public void togglePopup(){
+        if(popup != null)
+        {
+            if(popup.activeInHierarchy){
+                popup.SetActive(false);
+            }
+            else{
+                popup.SetActive(true);
+            }
+        }
+    }
 }
 
