@@ -70,7 +70,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void OnApplicationQuit()
+    public void OnApplicationQuit()
     {
         timer.Stop();
     }
