@@ -29,4 +29,7 @@ public class GoogleBanner : MonoBehaviour
         // Load the banner with the request.
         this.bannerView.LoadAd(request);
     }
+     void OnDestroy() {
+        this.bannerView.Destroy();
+    }
 }
