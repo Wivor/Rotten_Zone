@@ -51,14 +51,17 @@ public class Rat : AttackableObject
         agent.speed = Statistics.speed;
         GetComponent<AnimationsController>().Initialize(armatureComponent);
         GetComponent<RatController>().Initialize(this, path);
+        GetComponent<HealthBar>().Initialize(this);
     }
 
     public override void DealDamage(int damage)
     {
-        Statistics.health -= damage;
-        if (Statistics.health <= 0)
+        Statistics.currentHealth -= damage;
+        GetComponent<HealthBar>().UpdateBar(Statistics.currentHealth, Statistics.health);
+
+        if (Statistics.currentHealth <= 0)
         {
-            if (GetComponent< RatController>().currentAction is Capture)
+            if (GetComponent<RatController>().currentAction is Capture)
             {
                 capturePoint.captureChange -= CapPointChange();
             }

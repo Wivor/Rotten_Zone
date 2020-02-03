@@ -6,6 +6,7 @@ public class Statistics
 {
     public bool ranged;
     public int health;
+    public int currentHealth;
     public int attack;
     public int attackSpeed;
     public int defence;
@@ -18,6 +19,7 @@ public class Statistics
     {
         ranged = scriptableRat.ranged;
         health = scriptableRat.health;
+        currentHealth = scriptableRat.health;
         attack = scriptableRat.attack;
         attackSpeed = scriptableRat.attackSpeed;
         defence = scriptableRat.defence;
