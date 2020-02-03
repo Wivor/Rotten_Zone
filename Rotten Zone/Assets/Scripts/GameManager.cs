@@ -2,10 +2,18 @@
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
+using System.Collections;
+using System;
 
 public class GameManager : MonoBehaviour
 {
     public GameObject textObject;
+
+    public GameObject gouda;
+    public GameObject chedar;
+    public GameObject feta;
+    public GameObject camembert;
+    public GameObject gorgonzola;
 
     public GameObject hp;
     public GameObject enemyhp;
@@ -85,6 +93,11 @@ public class GameManager : MonoBehaviour
     {
         if(popupWin != null)
         {
+            generateReward(gouda, 30, 50);
+            generateReward(chedar, 20, 40);
+            generateReward(feta, 12, 25);
+            generateReward(camembert, 7, 15);
+            generateReward(gorgonzola, 1, 7);
             popupWin.SetActive(true);
         }
     }
@@ -105,6 +118,14 @@ public class GameManager : MonoBehaviour
         if(enemyhp != null){
              enemyhp.GetComponent<Text>().text = baseBhealth+ "";
         }
+    }
+
+    public void generateReward(GameObject cheese, int min, int max)
+    {
+       System.Random random = new System.Random();
+        int randomAward= random.Next(min, max);
+
+        cheese.GetComponent<Text>().text = randomAward+ "";
     }
 
 }
