@@ -7,7 +7,7 @@ public class PrimitiveAI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("SpawnUnit", 4.0f, 0.5f);
+        InvokeRepeating("SpawnUnit", 4.0f, 3.5f);
     }
 
     // Update is called once per frame

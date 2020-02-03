@@ -11,8 +11,10 @@ public class RewardGenerator : MonoBehaviour
    
     public void getAward()
     {
+        if(modal != null){
+            modal.SetActive(true);
+        }
         
-        modal.SetActive(true);
         System.Random random = new System.Random();
         int randomAward= random.Next(1, 50);
 
