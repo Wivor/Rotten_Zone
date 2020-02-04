@@ -13,13 +13,13 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Base
+  - Lane1
+  - Lane2
+  - Lane3
+  - CapturePoint
+  - Unit
+  - Gate
   - 
   - 
   - 

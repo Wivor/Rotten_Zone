@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d48b4253fe01827439afcd4b1b6c41fb, type: 3}
+  m_Name: Archer
+  m_EditorClassIdentifier: 
+  unitName: Archer
+  ranged: 1
+  health: 100
+  attack: 20
+  attackSpeed: 2
+  defence: 1
+  speed: 4
+  capPoints: 2
+  cost: 75
+  range: 10
+  viewDistance: 10
+  attackClip: {fileID: 0}
+  deathClip: {fileID: 0}
+  dragonBonesData: {fileID: 11400000, guid: 7998955ddd884ed478acd6c39837a090, type: 2}
+  abilities: []
