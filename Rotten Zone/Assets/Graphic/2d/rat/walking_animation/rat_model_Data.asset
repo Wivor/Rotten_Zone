@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e36eea61314cd7347881e94c7a12097b, type: 3}
+  m_Name: rat_model_Data
+  m_EditorClassIdentifier: 
+  dataName: rat_model
+  dragonBonesJSON: {fileID: 4900000, guid: 324b74c6b6eda9a428445c60af4b7e57, type: 3}
+  textureAtlas:
+  - textureAtlasJSON: {fileID: 4900000, guid: 307ecd9c15ad5e344b74b481889a4b84, type: 3}
+    texture: {fileID: 2800000, guid: 43c6ebb712024cc4ebabb2aab71573f6, type: 3}
+    material: {fileID: 2100000, guid: c7211af3d211a8e43b3f5344a52ce58e, type: 2}
+    uiMaterial: {fileID: 0}
